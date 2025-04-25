@@ -1,0 +1,3273 @@
+{
+	"info": {
+		"_postman_id": "3c981b5f-079a-410a-b72d-b86ae9b70551",
+		"name": "Final Blog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33672752"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Add Admin Mod",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "9c9d2520-789f-4df6-a6ff-0ff150a4f48a",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "Mod",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/add_admin_mod",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"add_admin_mod"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "9c19e3f0-ed57-434c-a0c1-288faf40d946",
+									"disabled": true
+								},
+								{
+									"key": "role",
+									"value": "Mod",
+									"disabled": true
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "the_whoo",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "oisthso@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "profile",
+									"type": "file",
+									"src": "postman-cloud:///1ef1f045-ac5d-46e0-a27a-22655a8b0bed"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "tempat_lahir",
+									"value": "whereig",
+									"type": "text"
+								},
+								{
+									"key": "tanggal_lahir",
+									"value": "2000-08-11",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "Pria",
+									"type": "text"
+								},
+								{
+									"key": "lokasi",
+									"value": "dimanakah",
+									"type": "text"
+								},
+								{
+									"key": "nomor_telepon",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "timezone",
+									"value": "WIB",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/register",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"blog_access_token\", data.access_token);",
+									"postman.setEnvironmentVariable(\"blog_refresh_token\", data.refresh_token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "mainadmin10@gmail.com",
+									"description": "admin",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "themod@gmail.com",
+									"description": "mod",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "username",
+									"value": "ooooawiqwqs@gmail.com",
+									"description": "user",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "username",
+									"value": "bbbbbbbb@gmail.com",
+									"description": "user",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "username",
+									"value": "oisthso@mail.com",
+									"description": "user",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{client_id}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{client_secret}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/oauth/token",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/user/9d3f843c-ccdd-4c8d-8240-9aeb45387ea5",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"9d3f843c-ccdd-4c8d-8240-9aeb45387ea5"
+							],
+							"query": [
+								{
+									"key": "show",
+									"value": "30",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Nooopuuu",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "kkkj@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "tempat_lahir",
+									"value": "Binjai",
+									"type": "text"
+								},
+								{
+									"key": "tanggal_lahir",
+									"value": "2023-07-06",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "Wanita",
+									"type": "text"
+								},
+								{
+									"key": "lokasi",
+									"value": "vvvvvvvvvz",
+									"type": "text"
+								},
+								{
+									"key": "nomor_telepon",
+									"value": "08222222",
+									"type": "text"
+								},
+								{
+									"key": "profile",
+									"type": "file",
+									"src": "postman-cloud:///1ef1ef56-2ed8-49d0-a143-1de271d2d69e"
+								},
+								{
+									"key": "timezone",
+									"value": "WIB",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/user/9d3f843c-ccdd-4c8d-8240-9aeb45387ea5",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"9d3f843c-ccdd-4c8d-8240-9aeb45387ea5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/user/9c96a0ea-ec82-4ea0-b62c-9800b519eb73",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"9c96a0ea-ec82-4ea0-b62c-9800b519eb73"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/logout",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update My Account",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Nooopw",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "oisthsoooo@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "tempat_lahir",
+									"value": "Binjai",
+									"type": "text"
+								},
+								{
+									"key": "tanggal_lahir",
+									"value": "2023-07-06",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "Wanita",
+									"type": "text"
+								},
+								{
+									"key": "lokasi",
+									"value": "Medan",
+									"type": "text"
+								},
+								{
+									"key": "nomor_telepon",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "profile",
+									"type": "file",
+									"src": "postman-cloud:///1ef1ef56-2ed8-49d0-a143-1de271d2d69e"
+								},
+								{
+									"key": "timezone",
+									"value": "WITA",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/user_update",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"user_update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Coupon",
+			"item": [
+				{
+					"name": "Update Coupon",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "hhhhh",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "qwertthhj",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "discount",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "ddiscounttss",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/coupon/9dda8b84-adc7-4840-9674-bf43c3d8086f",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"coupon",
+								"9dda8b84-adc7-4840-9674-bf43c3d8086f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Coupon",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/coupon/9c3a015c-cccd-4351-9720-2bba0b7fa02d",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"coupon",
+								"9c3a015c-cccd-4351-9720-2bba0b7fa02d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Coupon",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/coupon/9dda8b84-adc7-4840-9674-bf43c3d8086f",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"coupon",
+								"9dda8b84-adc7-4840-9674-bf43c3d8086f"
+							],
+							"query": [
+								{
+									"key": "show",
+									"value": "3",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Coupon",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Harga apa in",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "zxcvbnmwwa",
+									"type": "text"
+								},
+								{
+									"key": "discount",
+									"value": "10900",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/coupon",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"coupon"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Update Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "qwertmmmmm",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "yuiopddaajjjjjjjjjjjjjjjjjjjjjj",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/post/9de0d740-08af-4251-8de1-84a90aee66e4",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"9de0d740-08af-4251-8de1-84a90aee66e4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/post/9c3a909b-05b9-405e-a70d-c13b31fa4d51",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"9c3a909b-05b9-405e-a70d-c13b31fa4d51"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Post",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/post/9d0bbe52-302f-47b4-be3c-5636ceb971c6",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"9d0bbe52-302f-47b4-be3c-5636ceb971c6"
+							],
+							"query": [
+								{
+									"key": "show",
+									"value": "3",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Haaaaaaaaa",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "ini kontent jjjj kkkkk lllllb",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/post",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"post"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "Update Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "content",
+									"value": "aaaddddd",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/comment/9dda7595-91a9-4262-b8d7-a4af7e1c697d",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"comment",
+								"9dda7595-91a9-4262-b8d7-a4af7e1c697d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/comment/9c425718-1e28-4128-be5f-0c20ace63283",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"comment",
+								"9c425718-1e28-4128-be5f-0c20ace63283"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Comment",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/comment",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"comment"
+							],
+							"query": [
+								{
+									"key": "show",
+									"value": "3",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "post_id",
+									"value": "9d83f4aa-8396-433e-a2c0-584783196766",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "dddddd",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/comment",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"comment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Item",
+			"item": [
+				{
+					"name": "Update Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Barangg123",
+									"type": "text"
+								},
+								{
+									"key": "unit_id",
+									"value": "9dbd61bc-21ae-4e9d-ac3a-d68a68b7ff98",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "700023",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "aaa",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "1000",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "postman-cloud:///1ef1f045-ac5d-46e0-a27a-22655a8b0bed"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/item/9dbd4a70-1d74-4604-9022-f33557d3c25b",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"item",
+								"9dbd4a70-1d74-4604-9022-f33557d3c25b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Item",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/item/9d0b37c8-58ae-4b71-af7c-d29cfb4d9r84",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"item",
+								"9d0b37c8-58ae-4b71-af7c-d29cfb4d9r84"
+							],
+							"query": [
+								{
+									"key": "show",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "filter[unit]",
+									"value": "Gram",
+									"disabled": true
+								},
+								{
+									"key": "filter[price]",
+									"value": "50",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Barangg",
+									"type": "text"
+								},
+								{
+									"key": "unit_id",
+									"value": "9dbd0f2c-ba4a-4e91-83ef-9c78f47fdb96",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "7000",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "lihatlah",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "postman-cloud:///1ef1f045-ac5d-46e0-a27a-22655a8b0bed"
+								},
+								{
+									"key": "amount",
+									"value": "10001",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/item",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Item Amount",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "item_id",
+									"value": "9d0b37c8-2a68-4f6b-90c4-adc718ceca9c",
+									"type": "text"
+								},
+								{
+									"key": "item_in",
+									"value": "50",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/update_item_amount",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"update_item_amount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Item Stock",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "item_id",
+									"value": "9dbd4a71-7ae9-4336-8412-d8dcc3b50e4a",
+									"type": "text"
+								},
+								{
+									"key": "stock_in",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "stock_out",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/edit_item_stock",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"edit_item_stock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/item/9c380e1c-29f1-4d90-a685-88548e3a83ab",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"item",
+								"9c380e1c-29f1-4d90-a685-88548e3a83ab"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "item Unit",
+			"item": [
+				{
+					"name": "Post Item Unit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Plastik kalau benar",
+									"type": "text"
+								},
+								{
+									"key": "multiple",
+									"value": "2000",
+									"type": "text"
+								},
+								{
+									"key": "note",
+									"value": "zxczxc",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/item_unit",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"item_unit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Item Unit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/item_unit",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"item_unit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Item Unit",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/item_unit",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"item_unit"
+							],
+							"query": [
+								{
+									"key": "show",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "filter[price]",
+									"value": "20000",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Item Unit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "JJI",
+									"type": "text"
+								},
+								{
+									"key": "multiple",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "note",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/item_unit/9df4f0e1-5736-45a5-b750-b3b8af344cc7",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"item_unit",
+								"9df4f0e1-5736-45a5-b750-b3b8af344cc7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shipment",
+			"item": [
+				{
+					"name": "Update Shipment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Plastik kalau benar",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "20000",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/shipment/9df8883c-8920-445e-a3f6-a130e51e35d1",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"shipment",
+								"9df8883c-8920-445e-a3f6-a130e51e35d1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Shipment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/shipment/9c9a8f7c-224f-4ac9-a719-be491ffb1002",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"shipment",
+								"9c9a8f7c-224f-4ac9-a719-be491ffb1002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Shipment",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/shipment/9df8883c-8920-445e-a3f6-a130e51e35d1",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"shipment",
+								"9df8883c-8920-445e-a3f6-a130e51e35d1"
+							],
+							"query": [
+								{
+									"key": "show",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "filter[price]",
+									"value": "20000",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Shipment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "JJI",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "10000",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "$$$",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/shipment",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"shipment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Invoice di PostGre",
+			"item": [
+				{
+					"name": "Update Invoice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "items",
+									"value": "[{\"item_id\": \"9d0b37c8-2a68-4f6b-90c4-adc718ceca9c\", \"quantity\": 4}, {\"item_id\": \"9d0b37c8-58ae-4b71-af7c-d29cfb4d9f84\", \"quantity\": 1000},{\"item_id\" : \"9d0b37c8-4ab5-46b9-a4cf-5adc58fc9caf\", \"quantity\" : 2}]",
+									"type": "text"
+								},
+								{
+									"key": "discount",
+									"value": "40000",
+									"type": "text"
+								},
+								{
+									"key": "destination",
+									"value": "yuiipo",
+									"type": "text"
+								},
+								{
+									"key": "payment",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "note",
+									"value": "ddd",
+									"type": "text"
+								},
+								{
+									"key": "coupon_code",
+									"value": "alalalal",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "Unpaid",
+									"type": "text"
+								},
+								{
+									"key": "shipment_id",
+									"value": "9d0b37c8-895f-4e72-896b-9e77a52bea22",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/invoice/9dde798a-bad3-440a-b47d-e17a9aff23ee",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"invoice",
+								"9dde798a-bad3-440a-b47d-e17a9aff23ee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Invoice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/invoice/9c2a55e9-468c-436c-8191-3d7fe283ac2b",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"invoice",
+								"9c2a55e9-468c-436c-8191-3d7fe283ac2b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Invoice",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/invoice",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"invoice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Invoice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "items",
+									"value": "[{\"item_id\": \"9d0b37c8-58ae-4b71-af7c-d29cfb4d9f84\", \"quantity\": 200},{\"item_id\" : \"9d0b37c8-4ab5-46b9-a4cf-5adc58fc9caf\", \"quantity\" : 2}, {\"item_id\": \"9d0b37c8-2a68-4f6b-90c4-adc718ceca9c\", \"quantity\": 4}]",
+									"type": "text"
+								},
+								{
+									"key": "destination",
+									"value": "Eartzz",
+									"type": "text"
+								},
+								{
+									"key": "shipment_id",
+									"value": "9d0b37c8-895f-4e72-896b-9e77a52bea22",
+									"type": "text"
+								},
+								{
+									"key": "coupon_code",
+									"value": "zxcvbnmww",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "note",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/invoice",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"invoice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Status Payment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "invoice_id",
+									"value": "9e3b70fa-3f4e-403c-b789-525951528763",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "Paid",
+									"description": "Cancelled, Paid, Unpaid, Waiting",
+									"type": "text"
+								},
+								{
+									"key": "payment",
+									"value": "100000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/update_status_payment/",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"update_status_payment",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payment Confirmation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "invoice_id",
+									"value": "9e4fabd2-dc66-4df6-9499-bdbcf7194fe2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/payment_confirmation",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"payment_confirmation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Purchase",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "invoice_id",
+									"value": "9daebc08-67db-44ee-b6b4-35cab86d8de4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/cancel_purchase",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"cancel_purchase"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Print Invoice",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/print_invoice/9d91fc39-936f-4734-9fac-5966fdc08357",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"print_invoice",
+								"9d91fc39-936f-4734-9fac-5966fdc08357"
+							],
+							"query": [
+								{
+									"key": "show",
+									"value": "3",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Print Invoice Excel",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{blog_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{blog_api_host}}/api/export-invoice",
+							"host": [
+								"{{blog_api_host}}"
+							],
+							"path": [
+								"api",
+								"export-invoice"
+							],
+							"query": [
+								{
+									"key": "show",
+									"value": "3",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Print Receipt Copy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{blog_api_host}}/api/export-receipt",
+									"host": [
+										"{{blog_api_host}}"
+									],
+									"path": [
+										"api",
+										"export-receipt"
+									],
+									"query": [
+										{
+											"key": "show",
+											"value": "3",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Jul 2024 10:00:28 GMT"
+								},
+								{
+									"key": "Last-Modified",
+									"value": "Tue, 16 Jul 2024 10:00:28 GMT"
+								},
+								{
+									"key": "Content-Disposition",
+									"value": "attachment; filename=ReceiptList.xlsx"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+								},
+								{
+									"key": "Content-Length",
+									"value": "8270"
+								},
+								{
+									"key": "Accept-Ranges",
+									"value": "bytes"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000\u000eP�XG�D�Z\u0001\u0000\u0000�\u0004\u0000\u0000\u0013\u0000\u0004\u0000[Content_Types].xmlSV\u0000\u0000���N�0\u0010E�|E�-J��@\b5��\u0012*Q>`�'�UǶl���L����@�nbE�gr=��tW�d�>(k\n6�r��\u0011V*�,���)�cI�`$hk�`{\fl:�\u001a/�\u000eCBb\u0013\nV���9\u000f��\u001aBf\u001d\u001a�RZ_C�W��\u000e�\n��o���\u000bk\"���ƃM�/��Jb2\u0007\u001f��&\f�i\u001e�\r��(#?�\n<t]0pN+\u0001�\n�\u001b#QS[�J��b]�$km�\u001b\u0017~\u0012\u0018�^c\u0018�\n�#�P!�Zg��<�\u0012�:&�;r�2���y�C�\u0019)�=�R����C�u��A�~�aK��\u0013���ջ��K�ެY\r��\u001d:��޺�\t5�\u0000l��(SG���:�^��\u001eχ\u001f��Q��xH��&�v\u0019>X?c���k�*�(_�����}�>���\u000bk�\u0001PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000\u000eP�X\u0017�78�\u0000\u0000\u0000K\u0002\u0000\u0000\u000b\u0000\u0004\u0000_rels/.relsSV\u0000\u0000���j�0\f��{\n�{���1F�^ʠ�2�\u0007�l�$���-}�y��\u0005��Î��O��v�y\u001a�;�؋Ӱ.JP��޵\u001a^��\u0003���Y\u001aű�3G�Ww�g\u001e)���>�\fqQC��D���b!�]�i$L��3���\f�2n��\u001e�o\u0006T\u000b�:Z\r�h����[��4�ი��]��\u0002yN�,ە\u000f�>�>\u000f�j\n-'\rV�)�#��EF\u0003^6��n���8q\"K��H��>_\u0019ׄ����eƏ�<⇄�Ud�v��\rT�PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000\u000eP�X�$�V�\u0000\u0000\u0000�\u0002\u0000\u0000\u001a\u0000\u0004\u0000xl/_rels/workbook.xml.relsSV\u0000\u0000���j�0\u0010D��\n��ZvZJ)�s)�\\[�\u0003���LlIh7m��U\u001bH\u001c\b�\u0007�Ĭؙ�H���8�OL�\u0007��*J\u0010�M���\u0014|4��g\u0010��[=\u0004�\n&$��w�7\u001c4�\u001dr}$�M<)p��EJ2\u000eGME���M\u001bҨ9��ɨ�^w(We�$��\u0003�\u000bO��\n��V �)��C��\u0006_�9���J�$���/\u001a�:d\u0005G]d\u001f���WK�s��s��<\u000e�[\f\u000f�V�tB��)?���\u0016��0_!��!�\u0019�4�E�ǩ\u0019y���\u001fPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000\u000eP�Xad���\u0001\u0000\u0000E\u0003\u0000\u0000\u0010\u0000\u0004\u0000docProps/app.xmlSV\u0000\u0000�SAn�0\u0010��\u0015\u0002�1e�(\n�b�:-rhP\u0003v��ZYD(��n\u0004��/%Ê��T�fg\u0007��T���\u0015=&��Wb�(E�ބ��C%\u001e��o>��\u0018|\r.x��\tI��\u000fj�B��\u0016��\u000e�*�2ǵ�dZ�\u0016��s�\t�\u0003�e:��4��]0/\u001dz����$���k�o�d(Ύ��״\u000ef�GO�S�~Z}��Y\u0003�\u000f�\u001f�I�B�ŷ�A�伩��\u000e�K�|ҥ��R�\f8�dc݀#T�P�\b�̶`\u0013i��G�!\u0015d�䩭D�\u001b\b�8��!Y�,βs1b\u0017���\u0015�3��LJN�\b��9�\u001f�r\u0014dp-�S���#�-;���\u0016\u0012��x9O\n    <f\u0010�e|\u0013��?���E�y�rB\u000f�ဃvB?��Ǹ\u000fw�x\u0019�5�v-$��L�0\u0011�>�M.���É�멤M\u000b�����mcx1O�_���E���P.���\u001f@�\u0005PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000\u000eP�X`ML�q\u0001\u0000\u0000\u0011\u0003\u0000\u0000\u0011\u0000\u0004\u0000docProps/core.xmlSV\u0000\u0000��QO�0\u0014���\u0015K_�h\u0007F�2F\"�'ML��km/P�ڦ�:���:\u0018������������}�U�\u0005�+��$\u001b1��\u0016F*�����\"�%�G�%���)i��YyQ\b�\u000b���\u0019\u000b\u000e\u0015�$��υ��\r��)�b\u00035�����\\\u0019Ws\fҭ��b��@ǌ]�\u001a�K��v��\u000eD�CJ1 ���\"@\n\n\u0015Ԡ��l��C\u0016����\u000f�9J�\n[\u000bg�{sH{5\u0004��\u00195�\u0018\r�g����9��*�U%���\u0014�p�Ѹ�Eo�it2�uA���Ǌ{|\f��\u0014Ȼ�o�o�ح�c@&a��_f�N���\u0005)�l|���4�^f,g,\u001f�^��\u001b�\u0004r�ֻ����Sb\u0017����Z|��ن3��\u0000`�����\u0004/��\u0018�c\u0019��\u000fA���\u000f\u0010؛�\b\u001dm�m�����\u001dTwS�~k�����Nnq�\u0003PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000\u000eP�Xs�{Y�\u0005\u0000\u0000�\u001b\u0000\u0000\u0013\u0000\u0004\u0000xl/theme/theme1.xmlSV\u0000\u0000�YOo�6\u0014��S\u0010���l)u�:E��햦\r\u0012�C��DK�)Q 餾\r�q��aݰˀ�v\u0018�\u0015h�]�O����\u0001�\n{�c���4i3lC�-������Q�z�A��!\u0011��c9�\u001b\u0016\"��\u0003��\u001d��pp�m!�p\u0012`�\u0013ұfDZ�6?��7TDb��<�\u001b�cEJ�\u001b�-}���2OI\u0002kc.b�`(B;\u0010�\b���n6\u001akv�ib�\u0004����xL}��\u0019Kksμ��+Q2��8�s�:E�\r&N�#g��\u0004:Ĭc���\u001f\r�\u0003e!�������?��y�^\u00101UC��\r�OIW\u0012\u0004�fN'�т�\u0019��W�\u0017��\u0005�U\\�����\u0005�\u001c�}\u001f,uV���t�\n        <5P�ʻ��\u001an\u0015��o��׻ݮ�^���xw\u0005�n��[�\n�]�U��[��Z\u0005�-�k+����5���A\u0011��d\u0005��s\u0011�\u0005d��\r#�\r��|\u0003,Q���\n�D���\u0018��b\u0000�<�X�\u0004�YJ��\u0007\\\u000f�#Aq&\u0000o\u0010��\u0014S�\\��d!�\u000b����Q�!#��W�x��)z�����g�\u000f>~����O\u0006�\u001b8\tu�}��7��?�~���f�����鯿|a\u0006*\u001d��'�?{��������\u0001�%�H�\u000fiL$�E��>��6�\u00002\u0012�\u0018F�V(p\u0004H\u0003���\n��\f3\u0013�K�λ+�\u0000��ק�+�\u001eDb��\u0001�\u0013�\u0015�.�˅ќ�L�n�4\t���T��c|h��;\u0011��4��LM,{\u0011���� �8$\tQ([�\u0013B\fd�(��u���K>V�\u001eE]L�.\u0019ґ2\u0013ݠ1�efR\u0010B]���]����~�\u001cV��\u0010��X\u0012Vq�u\n            <U86j�c�#ob\u0015��<�\t��p� �!a\u001c�\u0003\"��涘U���P��a�e���\u0014�NLț�s\u001d��'�\bǩQg�D:�C9�-��\u001eWF%x5C�1�\u0001'��K�:_Zߡad� ��T�R��j>��\u0018����J\u001d�䴲�(���e{\u000e߂C̔<'�u\u001d�X���4�#�\u0015�+��\n�.V�\\����,Ŷ�k�l���{L\u0019;P3Fnʼ�K0/\u0018�d>ȉ\u0016}~\u001a�c)��\u000b\u0005Ο���c���\b� ��%��d\u001dJ�r\t�\u000b��w~E�`s>���j�\u0007�tK�o.��P�Z\u0019��\nk]y;aN\u0001<�4�3K�N�fkބ�A8{��5\u000bѰQ0#A����\n                <,\u0017\u001e\"\u0019န1r��8�3���z�i��[o'�,A�Ź5�\u000b�Rc%J�j:��:BG����,��c����8\u0005~2+U��I��Ui�k�����m�4j\r��H�T�XF\u0005U�4\u001d�,�ozn懋1�P�ΦE����Z�'CK�c⫚��\\�SE�A\u0014\u001c�\u0011��}\fz���\n����9\u001f\b�P��x��/���k�2;0K#\\֤�\u0016�\u0002�?/t�G�zv��ohJ�\u0002M��]S��\u000b\rn+ȯ^�\u0006\b��=ڱ�P\u0011�*�F�\u001f\bh\u001crY�\u0017���TB,{���J\u000e�u��Q\u0014�0R�4D�B�S� dO�v�������9���,ԕi�;\"��\r��]��P4�&�#r�ɠ٦�\u001a���p���t>��\u0007KA�yz\u0011W+��Q��v*��m�-nzg>jS����\u000b\n7\u0015>[��C�\u000f�G��\u0012�F��.�o19\u0002�ۚq\u0019���Z��]\u0013�l>5g�j�}��7w�g�w����\u0014���L>Z�3����m�\u001fM���{�\u0007p)����\u0000>��t�oPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000\u000eP�X+�8\u000b\b\u0001\u0000\u0000w\u0002\u0000\u0000\u0014\u0000\u0004\u0000xl/sharedStrings.xmlSV\u0000\u0000m�1O�0\u0010�w~E�u�\u0010JRU�\fE������\\j��\u001c|\u0017D�=N\u0019��'����r��q}񍁭�J�.W�@:��ҹR�oO�{U�\u00005�{�JM�jSߔ�RD+q����5�\f:�\u001f�����@�6�5\u000f\u0001�a�(�����N;�����׈;?�Tj�Vuɶ.�ލ,�a(�ԥ��\u001f5vpH��Gd�\u0004\u0012�H��`O�A��\u0018N��Kv��̐��a��=\u00041)�rӞ�gקB7�Ո�����\u0004Ŕ5�HAk so]����\u000f�.���ŕB�/��i�v��%����s�_PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000\u000eP�X=�%\u001d�\u0001\u0000\u0000�\u0003\u0000\u0000\r\u0000\u0004\u0000xl/styles.xmlSV\u0000\u0000�SM��0\f��W\u0018߻N\u0006Z�%��\u0016\u0002=t)�\u0014zub%c�/le���׎3�\f��\\��$=ɲR=]�\"g�AZS��\u0004Lo�4cM\u001d���(\tȍ��\u001a��\f�>5婢���\u0013\u0000���\u0018\u001c��y\b��@\u0013iBMO�П@��`\u001d��\u0019��\u001c��G\u0016b\u000e\u0017!)i�\u000eE�i.\rm*3�Vc ��\fִ���\u0006k6���h����ZC�\u000e\u0007��\u000f�)c\u0013���f�,��[e=�cWӶ-�/ц�U�\u001bW��2�,\u0017^�\u0010ېJ��:�L4���M\u001b\r����`k���D������.a9b��z\u0011\u001fo?�L5��\u0001c���)�h\u001dKND�#\u0010���p�$�\u0019+��=(��^��p�}\u0019H~��\"\r���_alh�Y&\u001bI���_�^�ג����'�95�6oH��'݁o�%��D����hl�\u0017%G��hlms7���o,I�Q��TM��\u001e�$\u0015J��\u0014���\f�{����S�\"`���㍪�����L�Q?���\u001a��-t�i����?PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000\u000eP�XJY(ȫ\u0001\u0000\u0000�\u0002\u0000\u0000\u000f\u0000\u0004\u0000xl/workbook.xmlSV\u0000\u0000�R�N�@\u0010}�WX�^l\u0010�6��T \u0014�\u0017TRx���x�޴�N����:i)O�e�������ɚj��ɻV\u001d\u001e4�B�}G�U�Wˏ�T�\t\\\u0007�;l�3�:[|�o}|\\{�XI��\u0003h񅈌q�*��[5�\u0014fu�z@\u000b|�\u0003:��>ZH\u0002�C͒\u0003\u001d\u000f�ɚ��iNk\u000b�v\u0015f�=5|ߓ�\u000b�G�.ME\"\u001aH�\u0012\u000f\u0014X-�=\u0019���� �\u001f`e�'�*\u0003�.;Jص�X���D\u001c×�L\u0006'͉�\u00177����S��@|�s�l�\b��/>�\nt�\r�`�*Q\u001a��d\u0012�\u000bHx\u0015�\u0018��)�\"bO��m��\u0004[rd�%�Ճa\t��o��H/�%0�:zc���Wr�\u0017�&E�D�mx���,X�N\u001b�!�5\u0019Jϭ*o�y���Z�f{[��BV���J̵�z(\u001a�H\u001e�;.E��\u001d���\u0002��2�Κ��y�˧\n�.:�*�5�so��r\"\u0019�\u001f�9\u0017����a�(�����L�?��\u000fPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000\u000eP�X���uN\n\u0000\u0000FN\u0000\u0000\u0018\u0000\u0004\u0000xl/worksheets/sheet1.xmlSV\u0000\u0000��]s�H\u001a����\u0015\u0014�cP�=�\u0013�;S5[I%ٝc\u0005��\n V�v2�~[|\u0005��۝� ��V?\u0012�/\u000bY7�~_.\u0006/E�)���0�\u001a\u000f\u0007�jZ������?_\u001e~\t����W�|Q����b3���\u001f7�U�m�T\u0014� vp�Y��X\\�Ŧ�_�a�r��\u001d>5��z4�L��e�����*V�U�̛�X?�6�M>���\\��x�F˼\\�{��S����rZ�W��e�jv���\"ob��S��\u001cz�>K�oV�1�a<'C��U��e梿e9��M5o���r?�˔�Ѥ���2�����\u0010v�r��k��ߞ׿���q�|-\u0017e�c��p��^�����\"\u001eǘ+����/�O�\u0019{��ٮ�X��T�͢\\\u0015\u001f���y\u0019\u0007��bQ��w���S��Դ+Fw7�c�Y\u0019�m�&\u001d���v����!L�\u001f�����us�z��_?\u0017�b�\u0014�m����kU}k��U�m�y�^�U��?�p�[������O��j�{L\u0012O��u�x�W��<��R�+\u0016�v\u0010������9�v\u001b��\u000f\u0003{�\u001e��|V���E\u0013��{�\u000fk��p��7\u0016/��S�S��uqT��C�����n��uP���:oϹ���\u0011Oە�\u0000c�r7�\u0019��aM���NkY�����Ӛ��ޟ�L��pZ���(��\u0018B�!�ICw\u0016���B���Y\b�\u001b���wu�g��V,>��:�ch1�>���\u0007CC�Nó#u����A4\u0005�o\u00071b\u0010CA\f\u00041\u0014�P\u0010CA��A�\u0018�R\u0010\u000bA,\u0005�\u0014�R\u0010�v\u0010'\u0006q\u0014�A�N��\u0013��V;1Ȯh� �� ^\f�)�� ����#�G�\"�;F\u0010c\u0004�\u0011 F�\u0018�b��\u0018��\u0018\u00131ƄbL Ƅbt��\u0013Ȥ?���\u0018�X�\u0005�\u0014�S=O�mz\u001e�[��\f��a:-�����\u0019��(M�i2L�A�,!�<�g\n�t��<����l7�g\u0013�|�W{>���Y>����3]��@4�g8�w�\u0017��\u0004\u0002�q\u0012��L��3�qh��p���\u0013~�\u000f\u000f��Y��s~֙��9�Ѭ�m���X<<�\u000eO�ğ�3�0\u000e��ݦ\u0017q\u001c�q\u0014'a����?�\u0018�\u0004�mz\u0011�c\u001cOq\u0012\u0018��\u000e�\u0002�!\tt�^�\t\u0018'P�\u0004\u000ed�\u0007�\t�!\u0011t�^ę�G��\u0004>B�\u0004\u0018(\u0019\u0006jL�\u0014����<�\u001aS�C�'�J���m�2\fD6�6�\b�a��\u0003%�@���0\u0010���0\u0010��P�\u000b��\u0003%�@i\fD<�6�\b�1��@\t@P2\u0010��@\u0004�nӋ@\u0006\u0003\u0019\u000e� \u0004%\u000bA�\u0010\u0014\tA�\u0010��@�\u0003%\u0018A�FPh\u0004EFPh\u0004�0��@\tJP�\u0012\u0014*A�\u0012\u0014*Ay\f�9P�\u0013��\u0004�NP�\u0004�NP\u0001\u0003\u0005\u000e� \u0005%KA�\u0014\u0014IA�\u0014\u0014JA�\u0014T�\u0014�,\u0005�R�$\u0005�R�(\u0005�R�\tRв\u00144JA�\u00144JA�\u00144KA'HA�R�(\u0005MR�(\u0005�R�,\u0005��uA��\u0005(\u0005��\u0018�\u00144J�P�\u000b� \u0005-KA�\u00144IA�\u00144JA�\u0014t�\u0014�,\u0005�R�$\u0005�R�;\u000b(�R�f)�\u0004)hY\n\u001a��I\n\u001a��Q\n���\u0013��e)h��&)h��F)h��N�����Q\n���Q\n\u001a��Y\n:A\nZ��F)h��F)h��f)�\u0004)\u0018Y\n\u0006�`H\n\u0006�`P\n��`\u0012�`d)\u0018��!)\u0018��A)\u0018��I����`P\n��`P\n\u0006�`X\n&A\nF��A)\u0018��A)\u0018�¡�\u0017(�\u0006��;\fP\n\u0006�1@)\u0018��a)�\u0004)\u0018Y\n\u0006�`H\n\u0006�`�[\u0007�R0\tR0�\u0014\fJ��\u0014\fJ���\u000e��`\u0012�`d)\u0018��!)\u0018���o\u001e\fK�$H��R0(\u0005CR0(\u0005��=\u0018��I����`P\n��`P\n\u0006�H0,\u0005� \u0005+K��\u0014,I��\u0014,ޖ`Y\n6A\nV��E)X��E)X�3��\u0014l�\u0014�,\u0005�R�$\u0005�R�{\u000b�_~[��M����`Q\n��`Q\nV�o���`\u0013�`e)X��%)X��5\u0018��`SnI�'\u0011�`�D���k\n��`\u0013�`e)X��%)X��u\u0018��`\u0013�`e)X��%)X���Y��|(�\u0014l�\u0014�,\u0005�R�$\u0005�R�;\u000b�@,\u0005� \u0005+K��\u0014���{ʺ�����\u001e\u0003ZN����S�����^�\n\u000e���\n\u000e���t�\u001cS�%P��TpH\u0005GTpH\u0005�a ��K������\n����\nNa ��K������\n���Iԩ��y\"M'Ѿ�wg�N9�d+8��#+8��3����\n.�\nN��C+8�B�����t\u0016\u0003�\u0015\\ʟ1��\u001d\u0003Z��_28\f��$b+�\u0004+8�\n\u000e���\n��e ���\n.�\nN��C+8�B�x\u0019\b���\n.�\nN��C+8���)^\u0006�` ���\u0012�*x�\n\u001e���\n��E �T�L\u0005�@\u0005/S�#\u0015\n                <Q�S�\f�T�L\u0005�@\u0005/S�#\u0015\n                    <Q�S�\f�T�L\u0005�@\u0005/S�#\u0015<]U�\u0014/\u0003i\f�W\u0015|�U\u0005/K��\u0014\n                        <I�S�\fd0\u0010K�'H��R�(\u0005OR�(\u0005o1\u0010K�'H��R�(\u0005OR�(\u0005�R�,\u0005� \u0005��(\u0005OR�(\u0005�R�,\u0005� \u0005/K��\u0014\n                            <I��\u0014\n                                <J��\u0014|�\u0014�,\u0005�R�$\u0005�R�(\u0005�R�\tR\b�\u0014\u0002J!�\u0014\u0002J!�\u0014\u0002K!$H!�R\b(�@R\b(��R\b,�� � K!�\u0014\u0002I!�\u0014\u0002J!�\u0014B�\u0014�,��R\b$��R\b�~c\r,�� � K!�\u0014\u0002I!�\u0014\u0002^S\b,�� � K!�\u0014\u0002I!�\u0014\u0002^S\b,�� � K!�\u0014\u0002I!�\u0014��@,�� � K!�\u0014\u0002I!�\u0014\u0002~�\u0010X\n!A\n��i\t(�@R\b(��R\b,�� � K!�\u0014\u0002I!�\u0014\u0002J!�\u0014\u0002Iat�D�u]��\u000f��ӳ\u0006�?��4�\u0017�b�s���?6i\u0014\u001b�ſ����m\u0016�\n                                    <V�W�-Q�o�}�T���x.���Z\u001e����Zj��\u0007񼪚�¾߸���`����s�w�}�QU�Ū�>��v��R<\u0018Ӽ}~U�\u0005����R\u001d\u001f��_���5O�Ŷ�\u000f�v���u��X}x)�v���\n                                        <l\u00072���yQ�m}��޿\u0014��~8\u0016\u001e�z�\u001cWo��W�<�W��S��E��j����~��M5��3\u0015�����r������\"n���\u000b��c�Ӆy;�c���v�ب�t�\u0003�n���`\u001f��\f����?�jt|\u0004���\u0001PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000\u000eP�X�KR\"x\u0000\u0000\u0000�\u0000\u0000\u0000#\u0000\u0004\u0000xl/worksheets/_rels/sheet1.xml.relsSV\u0000\u0000M�1\u000e\u0002!\u0010\u0000{_A��@\u000bc�q��\u0000�\u000f�p+\u0010a!,1�{)-'��y����$\u0016�p�\f(bW�����~ݟAIG�0\u0015&\u000b_\u0012X��|��}4\u0012b\u00155&,\u0016B�����@\u0019e*�x�gi\u0019���uE�BO�h�I��\u0007��\u0007PK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000\u000eP�XG�D�Z\u0001\u0000\u0000�\u0004\u0000\u0000\u0013\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000\u0000\u0000\u0000\u0000[Content_Types].xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000\u000eP�X\u0017�78�\u0000\u0000\u0000K\u0002\u0000\u0000\u000b\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0001\u0000\u0000_rels/.relsPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000\u000eP�X�$�V�\u0000\u0000\u0000�\u0002\u0000\u0000\u001a\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0002\u0000\u0000xl/_rels/workbook.xml.relsPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000\u000eP�Xad���\u0001\u0000\u0000E\u0003\u0000\u0000\u0010\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0003\u0000\u0000docProps/app.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000\u000eP�X`ML�q\u0001\u0000\u0000\u0011\u0003\u0000\u0000\u0011\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0005\u0000\u0000docProps/core.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000\u000eP�Xs�{Y�\u0005\u0000\u0000�\u001b\u0000\u0000\u0013\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000&\u0007\u0000\u0000xl/theme/theme1.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000\u000eP�X+�8\u000b\b\u0001\u0000\u0000w\u0002\u0000\u0000\u0014\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000\u0016\r\u0000\u0000xl/sharedStrings.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000\u000eP�X=�%\u001d�\u0001\u0000\u0000�\u0003\u0000\u0000\r\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000T\u000e\u0000\u0000xl/styles.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000\u000eP�XJY(ȫ\u0001\u0000\u0000�\u0002\u0000\u0000\u000f\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000F\u0010\u0000\u0000xl/workbook.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000\u000eP�X���uN\n\u0000\u0000FN\u0000\u0000\u0018\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000\"\u0012\u0000\u0000xl/worksheets/sheet1.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000\u000eP�X�KR\"x\u0000\u0000\u0000�\u0000\u0000\u0000#\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u001c\u0000\u0000xl/worksheets/_rels/sheet1.xml.relsPK\u0005\u0006\u0000\u0000\u0000\u0000\u000b\u0000\u000b\u0000�\u0002\u0000\u0000g\u001d\u0000\u0000\u0000\u0000"
+						},
+						{
+							"name": "Print Receipt Copy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{blog_api_host}}/api/export-receipt",
+									"host": [
+										"{{blog_api_host}}"
+									],
+									"path": [
+										"api",
+										"export-receipt"
+									],
+									"query": [
+										{
+											"key": "show",
+											"value": "3",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Jul 2024 10:01:54 GMT"
+								},
+								{
+									"key": "Last-Modified",
+									"value": "Tue, 16 Jul 2024 10:01:54 GMT"
+								},
+								{
+									"key": "Content-Disposition",
+									"value": "attachment; filename=ReceiptList.xlsx"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+								},
+								{
+									"key": "Content-Length",
+									"value": "8271"
+								},
+								{
+									"key": "Accept-Ranges",
+									"value": "bytes"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000;P�XG�D�Z\u0001\u0000\u0000�\u0004\u0000\u0000\u0013\u0000\u0004\u0000[Content_Types].xmlSV\u0000\u0000���N�0\u0010E�|E�-J��@\b5��\u0012*Q>`�'�UǶl���L����@�nbE�gr=��tW�d�>(k\n6�r��\u0011V*�,���)�cI�`$hk�`{\fl:�\u001a/�\u000eCBb\u0013\nV���9\u000f��\u001aBf\u001d\u001a�RZ_C�W��\u000e�\n��o���\u000bk\"���ƃM�/��Jb2\u0007\u001f��&\f�i\u001e�\r��(#?�\n<t]0pN+\u0001�\n�\u001b#QS[�J��b]�$km�\u001b\u0017~\u0012\u0018�^c\u0018�\n�#�P!�Zg��<�\u0012�:&�;r�2���y�C�\u0019)�=�R����C�u��A�~�aK��\u0013���ջ��K�ެY\r��\u001d:��޺�\t5�\u0000l��(SG���:�^��\u001eχ\u001f��Q��xH��&�v\u0019>X?c���k�*�(_�����}�>���\u000bk�\u0001PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000;P�X\u0017�78�\u0000\u0000\u0000K\u0002\u0000\u0000\u000b\u0000\u0004\u0000_rels/.relsSV\u0000\u0000���j�0\f��{\n�{���1F�^ʠ�2�\u0007�l�$���-}�y��\u0005��Î��O��v�y\u001a�;�؋Ӱ.JP��޵\u001a^��\u0003���Y\u001aű�3G�Ww�g\u001e)���>�\fqQC��D���b!�]�i$L��3���\f�2n��\u001e�o\u0006T\u000b�:Z\r�h����[��4�ი��]��\u0002yN�,ە\u000f�>�>\u000f�j\n-'\rV�)�#��EF\u0003^6��n���8q\"K��H��>_\u0019ׄ����eƏ�<⇄�Ud�v��\rT�PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000;P�X�$�V�\u0000\u0000\u0000�\u0002\u0000\u0000\u001a\u0000\u0004\u0000xl/_rels/workbook.xml.relsSV\u0000\u0000���j�0\u0010D��\n��ZvZJ)�s)�\\[�\u0003���LlIh7m��U\u001bH\u001c\b�\u0007�Ĭؙ�H���8�OL�\u0007��*J\u0010�M���\u0014|4��g\u0010��[=\u0004�\n&$��w�7\u001c4�\u001dr}$�M<)p��EJ2\u000eGME���M\u001bҨ9��ɨ�^w(We�$��\u0003�\u000bO��\n��V �)��C��\u0006_�9���J�$���/\u001a�:d\u0005G]d\u001f���WK�s��s��<\u000e�[\f\u000f�V�tB��)?���\u0016��0_!��!�\u0019�4�E�ǩ\u0019y���\u001fPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000;P�Xad���\u0001\u0000\u0000E\u0003\u0000\u0000\u0010\u0000\u0004\u0000docProps/app.xmlSV\u0000\u0000�SAn�0\u0010��\u0015\u0002�1e�(\n�b�:-rhP\u0003v��ZYD(��n\u0004��/%Ê��T�fg\u0007��T���\u0015=&��Wb�(E�ބ��C%\u001e��o>��\u0018|\r.x��\tI��\u000fj�B��\u0016��\u000e�*�2ǵ�dZ�\u0016��s�\t�\u0003�e:��4��]0/\u001dz����$���k�o�d(Ύ��״\u000ef�GO�S�~Z}��Y\u0003�\u000f�\u001f�I�B�ŷ�A�伩��\u000e�K�|ҥ��R�\f8�dc݀#T�P�\b�̶`\u0013i��G�!\u0015d�䩭D�\u001b\b�8��!Y�,βs1b\u0017���\u0015�3��LJN�\b��9�\u001f�r\u0014dp-�S���#�-;���\u0016\u0012��x9O\n    <f\u0010�e|\u0013��?���E�y�rB\u000f�ဃvB?��Ǹ\u000fw�x\u0019�5�v-$��L�0\u0011�>�M.���É�멤M\u000b�����mcx1O�_���E���P.���\u001f@�\u0005PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000;P�X�ެmr\u0001\u0000\u0000\u0011\u0003\u0000\u0000\u0011\u0000\u0004\u0000docProps/core.xmlSV\u0000\u0000���N�0\u0010��\n        <E�+J���)J�\u0004�'��Z\u0004Wc/�ib[�B���qڔ��8%��|�\u001d����U�\r�+��$\u001b1��\u0016F*�����,�!�G�%���)i����\u00106\u0017���3\u0016\u001c*�I\u0000i�\u000b;%+D�S��\nj�G!���a\\�1H����5_\u0002\u001d3vEk@.9r�\u0001S;\u0010�\u0016)ŀ�_��\u0000)(TP�FO�QF�Y\u0004W��?D�W�V�Z8\u0019ݙCz��\u0010l�f�Lb4̟ѷ��y\\5U��J\u0000)\u000b)rဣq�^k����\u0005��u=V��Sh�C��k��Ǒb�f�\u0001����~���:�X�H9f㋔]���\"c9����9\u000b/�\u001b�\u0000���ۓ���Qb\u0017����Z|�dnÙү\u00000���]P�\u0017NY\fױ��������'\b��A����6�I_������a��qmo�Q\u0007���\u0001PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000;P�Xs�{Y�\u0005\u0000\u0000�\u001b\u0000\u0000\u0013\u0000\u0004\u0000xl/theme/theme1.xmlSV\u0000\u0000�YOo�6\u0014��S\u0010���l)u�:E��햦\r\u0012�C��DK�)Q 餾\r�q��aݰˀ�v\u0018�\u0015h�]�O����\u0001�\n{�c���4i3lC�-������Q�z�A��!\u0011��c9�\u001b\u0016\"��\u0003��\u001d��pp�m!�p\u0012`�\u0013ұfDZ�6?��7TDb��<�\u001b�cEJ�\u001b�-}���2OI\u0002kc.b�`(B;\u0010�\b���n6\u001akv�ib�\u0004����xL}��\u0019Kksμ��+Q2��8�s�:E�\r&N�#g��\u0004:Ĭc���\u001f\r�\u0003e!�������?��y�^\u00101UC��\r�OIW\u0012\u0004�fN'�т�\u0019��W�\u0017��\u0005�U\\�����\u0005�\u001c�}\u001f,uV���t�\n            <5P�ʻ��\u001an\u0015��o��׻ݮ�^���xw\u0005�n��[�\n�]�U��[��Z\u0005�-�k+����5���A\u0011��d\u0005��s\u0011�\u0005d��\r#�\r��|\u0003,Q���\n�D���\u0018��b\u0000�<�X�\u0004�YJ��\u0007\\\u000f�#Aq&\u0000o\u0010��\u0014S�\\��d!�\u000b����Q�!#��W�x��)z�����g�\u000f>~����O\u0006�\u001b8\tu�}��7��?�~���f�����鯿|a\u0006*\u001d��'�?{��������\u0001�%�H�\u000fiL$�E��>��6�\u00002\u0012�\u0018F�V(p\u0004H\u0003���\n��\f3\u0013�K�λ+�\u0000��ק�+�\u001eDb��\u0001�\u0013�\u0015�.�˅ќ�L�n�4\t���T��c|h��;\u0011��4��LM,{\u0011���� �8$\tQ([�\u0013B\fd�(��u���K>V�\u001eE]L�.\u0019ґ2\u0013ݠ1�efR\u0010B]���]����~�\u001cV��\u0010��X\u0012Vq�u\n                <U86j�c�#ob\u0015��<�\t��p� �!a\u001c�\u0003\"��涘U���P��a�e���\u0014�NLț�s\u001d��'�\bǩQg�D:�C9�-��\u001eWF%x5C�1�\u0001'��K�:_Zߡad� ��T�R��j>��\u0018����J\u001d�䴲�(���e{\u000e߂C̔<'�u\u001d�X���4�#�\u0015�+��\n�.V�\\����,Ŷ�k�l���{L\u0019;P3Fnʼ�K0/\u0018�d>ȉ\u0016}~\u001a�c)��\u000b\u0005Ο���c���\b� ��%��d\u001dJ�r\t�\u000b��w~E�`s>���j�\u0007�tK�o.��P�Z\u0019��\nk]y;aN\u0001<�4�3K�N�fkބ�A8{��5\u000bѰQ0#A����\n                    <,\u0017\u001e\"\u0019န1r��8�3���z�i��[o'�,A�Ź5�\u000b�Rc%J�j:��:BG����,��c����8\u0005~2+U��I��Ui�k�����m�4j\r��H�T�XF\u0005U�4\u001d�,�ozn懋1�P�ΦE����Z�'CK�c⫚��\\�SE�A\u0014\u001c�\u0011��}\fz���\n����9\u001f\b�P��x��/���k�2;0K#\\֤�\u0016�\u0002�?/t�G�zv��ohJ�\u0002M��]S��\u000b\rn+ȯ^�\u0006\b��=ڱ�P\u0011�*�F�\u001f\bh\u001crY�\u0017���TB,{���J\u000e�u��Q\u0014�0R�4D�B�S� dO�v�������9���,ԕi�;\"��\r��]��P4�&�#r�ɠ٦�\u001a���p���t>��\u0007KA�yz\u0011W+��Q��v*��m�-nzg>jS����\u000b\n7\u0015>[��C�\u000f�G��\u0012�F��.�o19\u0002�ۚq\u0019���Z��]\u0013�l>5g�j�}��7w�g�w����\u0014���L>Z�3����m�\u001fM���{�\u0007p)����\u0000>��t�oPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000;P�X+�8\u000b\b\u0001\u0000\u0000w\u0002\u0000\u0000\u0014\u0000\u0004\u0000xl/sharedStrings.xmlSV\u0000\u0000m�1O�0\u0010�w~E�u�\u0010JRU�\fE������\\j��\u001c|\u0017D�=N\u0019��'����r��q}񍁭�J�.W�@:��ҹR�oO�{U�\u00005�{�JM�jSߔ�RD+q����5�\f:�\u001f�����@�6�5\u000f\u0001�a�(�����N;�����׈;?�Tj�Vuɶ.�ލ,�a(�ԥ��\u001f5vpH��Gd�\u0004\u0012�H��`O�A��\u0018N��Kv��̐��a��=\u00041)�rӞ�gקB7�Ո�����\u0004Ŕ5�HAk so]����\u000f�.���ŕB�/��i�v��%����s�_PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000;P�X=�%\u001d�\u0001\u0000\u0000�\u0003\u0000\u0000\r\u0000\u0004\u0000xl/styles.xmlSV\u0000\u0000�SM��0\f��W\u0018߻N\u0006Z�%��\u0016\u0002=t)�\u0014zub%c�/le���׎3�\f��\\��$=ɲR=]�\"g�AZS��\u0004Lo�4cM\u001d���(\tȍ��\u001a��\f�>5婢���\u0013\u0000���\u0018\u001c��y\b��@\u0013iBMO�П@��`\u001d��\u0019��\u001c��G\u0016b\u000e\u0017!)i�\u000eE�i.\rm*3�Vc ��\fִ���\u0006k6���h����ZC�\u000e\u0007��\u000f�)c\u0013���f�,��[e=�cWӶ-�/ц�U�\u001bW��2�,\u0017^�\u0010ېJ��:�L4���M\u001b\r����`k���D������.a9b��z\u0011\u001fo?�L5��\u0001c���)�h\u001dKND�#\u0010���p�$�\u0019+��=(��^��p�}\u0019H~��\"\r���_alh�Y&\u001bI���_�^�ג����'�95�6oH��'݁o�%��D����hl�\u0017%G��hlms7���o,I�Q��TM��\u001e�$\u0015J��\u0014���\f�{����S�\"`���㍪�����L�Q?���\u001a��-t�i����?PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000;P�XJY(ȫ\u0001\u0000\u0000�\u0002\u0000\u0000\u000f\u0000\u0004\u0000xl/workbook.xmlSV\u0000\u0000�R�N�@\u0010}�WX�^l\u0010�6��T \u0014�\u0017TRx���x�޴�N����:i)O�e�������ɚj��ɻV\u001d\u001e4�B�}G�U�Wˏ�T�\t\\\u0007�;l�3�:[|�o}|\\{�XI��\u0003h񅈌q�*��[5�\u0014fu�z@\u000b|�\u0003:��>ZH\u0002�C͒\u0003\u001d\u000f�ɚ��iNk\u000b�v\u0015f�=5|ߓ�\u000b�G�.ME\"\u001aH�\u0012\u000f\u0014X-�=\u0019���� �\u001f`e�'�*\u0003�.;Jص�X���D\u001c×�L\u0006'͉�\u00177����S��@|�s�l�\b��/>�\nt�\r�`�*Q\u001a��d\u0012�\u000bHx\u0015�\u0018��)�\"bO��m��\u0004[rd�%�Ճa\t��o��H/�%0�:zc���Wr�\u0017�&E�D�mx���,X�N\u001b�!�5\u0019Jϭ*o�y���Z�f{[��BV���J̵�z(\u001a�H\u001e�;.E��\u001d���\u0002��2�Κ��y�˧\n�.:�*�5�so��r\"\u0019�\u001f�9\u0017����a�(�����L�?��\u000fPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000;P�X���uN\n\u0000\u0000FN\u0000\u0000\u0018\u0000\u0004\u0000xl/worksheets/sheet1.xmlSV\u0000\u0000��]s�H\u001a����\u0015\u0014�cP�=�\u0013�;S5[I%ٝc\u0005��\n V�v2�~[|\u0005��۝� ��V?\u0012�/\u000bY7�~_.\u0006/E�)���0�\u001a\u000f\u0007�jZ������?_\u001e~\t����W�|Q����b3���\u001f7�U�m�T\u0014� vp�Y��X\\�Ŧ�_�a�r��\u001d>5��z4�L��e�����*V�U�̛�X?�6�M>���\\��x�F˼\\�{��S����rZ�W��e�jv���\"ob��S��\u001cz�>K�oV�1�a<'C��U��e梿e9��M5o���r?�˔�Ѥ���2�����\u0010v�r��k��ߞ׿���q�|-\u0017e�c��p��^�����\"\u001eǘ+����/�O�\u0019{��ٮ�X��T�͢\\\u0015\u001f���y\u0019\u0007��bQ��w���S��Դ+Fw7�c�Y\u0019�m�&\u001d���v����!L�\u001f�����us�z��_?\u0017�b�\u0014�m����kU}k��U�m�y�^�U��?�p�[������O��j�{L\u0012O��u�x�W��<��R�+\u0016�v\u0010������9�v\u001b��\u000f\u0003{�\u001e��|V���E\u0013��{�\u000fk��p��7\u0016/��S�S��uqT��C�����n��uP���:oϹ���\u0011Oە�\u0000c�r7�\u0019��aM���NkY�����Ӛ��ޟ�L��pZ���(��\u0018B�!�ICw\u0016���B���Y\b�\u001b���wu�g��V,>��:�ch1�>���\u0007CC�Nó#u����A4\u0005�o\u00071b\u0010CA\f\u00041\u0014�P\u0010CA��A�\u0018�R\u0010\u000bA,\u0005�\u0014�R\u0010�v\u0010'\u0006q\u0014�A�N��\u0013��V;1Ȯh� �� ^\f�)�� ����#�G�\"�;F\u0010c\u0004�\u0011 F�\u0018�b��\u0018��\u0018\u00131ƄbL Ƅbt��\u0013Ȥ?���\u0018�X�\u0005�\u0014�S=O�mz\u001e�[��\f��a:-�����\u0019��(M�i2L�A�,!�<�g\n�t��<����l7�g\u0013�|�W{>���Y>����3]��@4�g8�w�\u0017��\u0004\u0002�q\u0012��L��3�qh��p���\u0013~�\u000f\u000f��Y��s~֙��9�Ѭ�m���X<<�\u000eO�ğ�3�0\u000e��ݦ\u0017q\u001c�q\u0014'a����?�\u0018�\u0004�mz\u0011�c\u001cOq\u0012\u0018��\u000e�\u0002�!\tt�^�\t\u0018'P�\u0004\u000ed�\u0007�\t�!\u0011t�^ę�G��\u0004>B�\u0004\u0018(\u0019\u0006jL�\u0014����<�\u001aS�C�'�J���m�2\fD6�6�\b�a��\u0003%�@���0\u0010���0\u0010��P�\u000b��\u0003%�@i\fD<�6�\b�1��@\t@P2\u0010��@\u0004�nӋ@\u0006\u0003\u0019\u000e� \u0004%\u000bA�\u0010\u0014\tA�\u0010��@�\u0003%\u0018A�FPh\u0004EFPh\u0004�0��@\tJP�\u0012\u0014*A�\u0012\u0014*Ay\f�9P�\u0013��\u0004�NP�\u0004�NP\u0001\u0003\u0005\u000e� \u0005%KA�\u0014\u0014IA�\u0014\u0014JA�\u0014T�\u0014�,\u0005�R�$\u0005�R�(\u0005�R�\tRв\u00144JA�\u00144JA�\u00144KA'HA�R�(\u0005MR�(\u0005�R�,\u0005��uA��\u0005(\u0005��\u0018�\u00144J�P�\u000b� \u0005-KA�\u00144IA�\u00144JA�\u0014t�\u0014�,\u0005�R�$\u0005�R�;\u000b(�R�f)�\u0004)hY\n\u001a��I\n\u001a��Q\n���\u0013��e)h��&)h��F)h��N�����Q\n���Q\n\u001a��Y\n:A\nZ��F)h��F)h��f)�\u0004)\u0018Y\n\u0006�`H\n\u0006�`P\n��`\u0012�`d)\u0018��!)\u0018��A)\u0018��I����`P\n��`P\n\u0006�`X\n&A\nF��A)\u0018��A)\u0018�¡�\u0017(�\u0006��;\fP\n\u0006�1@)\u0018��a)�\u0004)\u0018Y\n\u0006�`H\n\u0006�`�[\u0007�R0\tR0�\u0014\fJ��\u0014\fJ���\u000e��`\u0012�`d)\u0018��!)\u0018���o\u001e\fK�$H��R0(\u0005CR0(\u0005��=\u0018��I����`P\n��`P\n\u0006�H0,\u0005� \u0005+K��\u0014,I��\u0014,ޖ`Y\n6A\nV��E)X��E)X�3��\u0014l�\u0014�,\u0005�R�$\u0005�R�{\u000b�_~[��M����`Q\n��`Q\nV�o���`\u0013�`e)X��%)X��5\u0018��`SnI�'\u0011�`�D���k\n��`\u0013�`e)X��%)X��u\u0018��`\u0013�`e)X��%)X���Y��|(�\u0014l�\u0014�,\u0005�R�$\u0005�R�;\u000b�@,\u0005� \u0005+K��\u0014���{ʺ�����\u001e\u0003ZN����S�����^�\n\u000e���\n\u000e���t�\u001cS�%P��TpH\u0005GTpH\u0005�a ��K������\n����\nNa ��K������\n���Iԩ��y\"M'Ѿ�wg�N9�d+8��#+8��3����\n.�\nN��C+8�B�����t\u0016\u0003�\u0015\\ʟ1��\u001d\u0003Z��_28\f��$b+�\u0004+8�\n\u000e���\n��e ���\n.�\nN��C+8�B�x\u0019\b���\n.�\nN��C+8���)^\u0006�` ���\u0012�*x�\n\u001e���\n��E �T�L\u0005�@\u0005/S�#\u0015\n                    <Q�S�\f�T�L\u0005�@\u0005/S�#\u0015\n                        <Q�S�\f�T�L\u0005�@\u0005/S�#\u0015<]U�\u0014/\u0003i\f�W\u0015|�U\u0005/K��\u0014\n                            <I�S�\fd0\u0010K�'H��R�(\u0005OR�(\u0005o1\u0010K�'H��R�(\u0005OR�(\u0005�R�,\u0005� \u0005��(\u0005OR�(\u0005�R�,\u0005� \u0005/K��\u0014\n                                <I��\u0014\n                                    <J��\u0014|�\u0014�,\u0005�R�$\u0005�R�(\u0005�R�\tR\b�\u0014\u0002J!�\u0014\u0002J!�\u0014\u0002K!$H!�R\b(�@R\b(��R\b,�� � K!�\u0014\u0002I!�\u0014\u0002J!�\u0014B�\u0014�,��R\b$��R\b�~c\r,�� � K!�\u0014\u0002I!�\u0014\u0002^S\b,�� � K!�\u0014\u0002I!�\u0014\u0002^S\b,�� � K!�\u0014\u0002I!�\u0014��@,�� � K!�\u0014\u0002I!�\u0014\u0002~�\u0010X\n!A\n��i\t(�@R\b(��R\b,�� � K!�\u0014\u0002I!�\u0014\u0002J!�\u0014\u0002Iat�D�u]��\u000f��ӳ\u0006�?��4�\u0017�b�s���?6i\u0014\u001b�ſ����m\u0016�\n                                        <V�W�-Q�o�}�T���x.���Z\u001e����Zj��\u0007񼪚�¾߸���`����s�w�}�QU�Ū�>��v��R<\u0018Ӽ}~U�\u0005����R\u001d\u001f��_���5O�Ŷ�\u000f�v���u��X}x)�v���\n                                            <l\u00072���yQ�m}��޿\u0014��~8\u0016\u001e�z�\u001cWo��W�<�W��S��E��j����~��M5��3\u0015�����r������\"n���\u000b��c�Ӆy;�c���v�ب�t�\u0003�n���`\u001f��\f����?�jt|\u0004���\u0001PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000;P�X�KR\"x\u0000\u0000\u0000�\u0000\u0000\u0000#\u0000\u0004\u0000xl/worksheets/_rels/sheet1.xml.relsSV\u0000\u0000M�1\u000e\u0002!\u0010\u0000{_A��@\u000bc�q��\u0000�\u000f�p+\u0010a!,1�{)-'��y����$\u0016�p�\f(bW�����~ݟAIG�0\u0015&\u000b_\u0012X��|��}4\u0012b\u00155&,\u0016B�����@\u0019e*�x�gi\u0019���uE�BO�h�I��\u0007��\u0007PK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000;P�XG�D�Z\u0001\u0000\u0000�\u0004\u0000\u0000\u0013\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000\u0000\u0000\u0000\u0000[Content_Types].xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000;P�X\u0017�78�\u0000\u0000\u0000K\u0002\u0000\u0000\u000b\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0001\u0000\u0000_rels/.relsPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000;P�X�$�V�\u0000\u0000\u0000�\u0002\u0000\u0000\u001a\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0002\u0000\u0000xl/_rels/workbook.xml.relsPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000;P�Xad���\u0001\u0000\u0000E\u0003\u0000\u0000\u0010\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0003\u0000\u0000docProps/app.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000;P�X�ެmr\u0001\u0000\u0000\u0011\u0003\u0000\u0000\u0011\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0005\u0000\u0000docProps/core.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000;P�Xs�{Y�\u0005\u0000\u0000�\u001b\u0000\u0000\u0013\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000'\u0007\u0000\u0000xl/theme/theme1.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000;P�X+�8\u000b\b\u0001\u0000\u0000w\u0002\u0000\u0000\u0014\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000\u0017\r\u0000\u0000xl/sharedStrings.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000;P�X=�%\u001d�\u0001\u0000\u0000�\u0003\u0000\u0000\r\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000U\u000e\u0000\u0000xl/styles.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000;P�XJY(ȫ\u0001\u0000\u0000�\u0002\u0000\u0000\u000f\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000G\u0010\u0000\u0000xl/workbook.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000;P�X���uN\n\u0000\u0000FN\u0000\u0000\u0018\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000#\u0012\u0000\u0000xl/worksheets/sheet1.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000;P�X�KR\"x\u0000\u0000\u0000�\u0000\u0000\u0000#\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u001c\u0000\u0000xl/worksheets/_rels/sheet1.xml.relsPK\u0005\u0006\u0000\u0000\u0000\u0000\u000b\u0000\u000b\u0000�\u0002\u0000\u0000h\u001d\u0000\u0000\u0000\u0000"
+						},
+						{
+							"name": "Print Receipt Copy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{blog_api_host}}/api/export-receipt",
+									"host": [
+										"{{blog_api_host}}"
+									],
+									"path": [
+										"api",
+										"export-receipt"
+									],
+									"query": [
+										{
+											"key": "show",
+											"value": "3",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 17 Jul 2024 08:34:40 GMT"
+								},
+								{
+									"key": "Last-Modified",
+									"value": "Wed, 17 Jul 2024 08:34:40 GMT"
+								},
+								{
+									"key": "Content-Disposition",
+									"value": "attachment; filename=ReceiptList.xlsx"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+								},
+								{
+									"key": "Content-Length",
+									"value": "8298"
+								},
+								{
+									"key": "Accept-Ranges",
+									"value": "bytes"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000TD�XG�D�Z\u0001\u0000\u0000�\u0004\u0000\u0000\u0013\u0000\u0004\u0000[Content_Types].xmlSV\u0000\u0000���N�0\u0010E�|E�-J��@\b5��\u0012*Q>`�'�UǶl���L����@�nbE�gr=��tW�d�>(k\n6�r��\u0011V*�,���)�cI�`$hk�`{\fl:�\u001a/�\u000eCBb\u0013\nV���9\u000f��\u001aBf\u001d\u001a�RZ_C�W��\u000e�\n��o���\u000bk\"���ƃM�/��Jb2\u0007\u001f��&\f�i\u001e�\r��(#?�\n<t]0pN+\u0001�\n�\u001b#QS[�J��b]�$km�\u001b\u0017~\u0012\u0018�^c\u0018�\n�#�P!�Zg��<�\u0012�:&�;r�2���y�C�\u0019)�=�R����C�u��A�~�aK��\u0013���ջ��K�ެY\r��\u001d:��޺�\t5�\u0000l��(SG���:�^��\u001eχ\u001f��Q��xH��&�v\u0019>X?c���k�*�(_�����}�>���\u000bk�\u0001PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000TD�X\u0017�78�\u0000\u0000\u0000K\u0002\u0000\u0000\u000b\u0000\u0004\u0000_rels/.relsSV\u0000\u0000���j�0\f��{\n�{���1F�^ʠ�2�\u0007�l�$���-}�y��\u0005��Î��O��v�y\u001a�;�؋Ӱ.JP��޵\u001a^��\u0003���Y\u001aű�3G�Ww�g\u001e)���>�\fqQC��D���b!�]�i$L��3���\f�2n��\u001e�o\u0006T\u000b�:Z\r�h����[��4�ი��]��\u0002yN�,ە\u000f�>�>\u000f�j\n-'\rV�)�#��EF\u0003^6��n���8q\"K��H��>_\u0019ׄ����eƏ�<⇄�Ud�v��\rT�PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000TD�X�$�V�\u0000\u0000\u0000�\u0002\u0000\u0000\u001a\u0000\u0004\u0000xl/_rels/workbook.xml.relsSV\u0000\u0000���j�0\u0010D��\n��ZvZJ)�s)�\\[�\u0003���LlIh7m��U\u001bH\u001c\b�\u0007�Ĭؙ�H���8�OL�\u0007��*J\u0010�M���\u0014|4��g\u0010��[=\u0004�\n&$��w�7\u001c4�\u001dr}$�M<)p��EJ2\u000eGME���M\u001bҨ9��ɨ�^w(We�$��\u0003�\u000bO��\n��V �)��C��\u0006_�9���J�$���/\u001a�:d\u0005G]d\u001f���WK�s��s��<\u000e�[\f\u000f�V�tB��)?���\u0016��0_!��!�\u0019�4�E�ǩ\u0019y���\u001fPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000TD�Xad���\u0001\u0000\u0000E\u0003\u0000\u0000\u0010\u0000\u0004\u0000docProps/app.xmlSV\u0000\u0000�SAn�0\u0010��\u0015\u0002�1e�(\n�b�:-rhP\u0003v��ZYD(��n\u0004��/%Ê��T�fg\u0007��T���\u0015=&��Wb�(E�ބ��C%\u001e��o>��\u0018|\r.x��\tI��\u000fj�B��\u0016��\u000e�*�2ǵ�dZ�\u0016��s�\t�\u0003�e:��4��]0/\u001dz����$���k�o�d(Ύ��״\u000ef�GO�S�~Z}��Y\u0003�\u000f�\u001f�I�B�ŷ�A�伩��\u000e�K�|ҥ��R�\f8�dc݀#T�P�\b�̶`\u0013i��G�!\u0015d�䩭D�\u001b\b�8��!Y�,βs1b\u0017���\u0015�3��LJN�\b��9�\u001f�r\u0014dp-�S���#�-;���\u0016\u0012��x9O\n    <f\u0010�e|\u0013��?���E�y�rB\u000f�ဃvB?��Ǹ\u000fw�x\u0019�5�v-$��L�0\u0011�>�M.���É�멤M\u000b�����mcx1O�_���E���P.���\u001f@�\u0005PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000TD�X�\u0012�r\u0001\u0000\u0000\u0011\u0003\u0000\u0000\u0011\u0000\u0004\u0000docProps/core.xmlSV\u0000\u0000��QO�0\u0014���\u0015K_�h\u0007D�2f��'ML��km�P�ڦ�8���:\u0018 �����ӯ��������\u000b�WF�H6b$\u0001-�Tz5#/�yzC\u0012�\\K^\u0019\r3҂'��E!l.��gg,8T��\u0000�>\u0017vFֈ6�ԋ5�܏BB\u0007�ø�c�nE-\u0017\u001b�\u0002:f�ր\\r�\u0003�v �\u001dR�\u0001i���\u0000)(TP�FO�QF\u000fY\u0004W�?\u000fD�(Y+l-�\u0019ݛC�۫!�4ͨ��h�?�oO���j�tW�\u0000R\u0016R��\u0001G��\u0017�Ѧ��}�\u000bz�u=V��Sh�C��k���b�f�\u0001����~���:�X�I9f�iʮ��z�n��4��K�rƺ1N \u0007j����=%v�\n+\b�ůL\u00166�)�\u001a\u0000c\u001d��\u0005%x���\u001c�h��\b�o�?A`o\u000e\"t���1N�26vP�K\r���k{�:y��\u000fPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000TD�Xs�{Y�\u0005\u0000\u0000�\u001b\u0000\u0000\u0013\u0000\u0004\u0000xl/theme/theme1.xmlSV\u0000\u0000�YOo�6\u0014��S\u0010���l)u�:E��햦\r\u0012�C��DK�)Q 餾\r�q��aݰˀ�v\u0018�\u0015h�]�O����\u0001�\n{�c���4i3lC�-������Q�z�A��!\u0011��c9�\u001b\u0016\"��\u0003��\u001d��pp�m!�p\u0012`�\u0013ұfDZ�6?��7TDb��<�\u001b�cEJ�\u001b�-}���2OI\u0002kc.b�`(B;\u0010�\b���n6\u001akv�ib�\u0004����xL}��\u0019Kksμ��+Q2��8�s�:E�\r&N�#g��\u0004:Ĭc���\u001f\r�\u0003e!�������?��y�^\u00101UC��\r�OIW\u0012\u0004�fN'�т�\u0019��W�\u0017��\u0005�U\\�����\u0005�\u001c�}\u001f,uV���t�\n        <5P�ʻ��\u001an\u0015��o��׻ݮ�^���xw\u0005�n��[�\n�]�U��[��Z\u0005�-�k+����5���A\u0011��d\u0005��s\u0011�\u0005d��\r#�\r��|\u0003,Q���\n�D���\u0018��b\u0000�<�X�\u0004�YJ��\u0007\\\u000f�#Aq&\u0000o\u0010��\u0014S�\\��d!�\u000b����Q�!#��W�x��)z�����g�\u000f>~����O\u0006�\u001b8\tu�}��7��?�~���f�����鯿|a\u0006*\u001d��'�?{��������\u0001�%�H�\u000fiL$�E��>��6�\u00002\u0012�\u0018F�V(p\u0004H\u0003���\n��\f3\u0013�K�λ+�\u0000��ק�+�\u001eDb��\u0001�\u0013�\u0015�.�˅ќ�L�n�4\t���T��c|h��;\u0011��4��LM,{\u0011���� �8$\tQ([�\u0013B\fd�(��u���K>V�\u001eE]L�.\u0019ґ2\u0013ݠ1�efR\u0010B]���]����~�\u001cV��\u0010��X\u0012Vq�u\n            <U86j�c�#ob\u0015��<�\t��p� �!a\u001c�\u0003\"��涘U���P��a�e���\u0014�NLț�s\u001d��'�\bǩQg�D:�C9�-��\u001eWF%x5C�1�\u0001'��K�:_Zߡad� ��T�R��j>��\u0018����J\u001d�䴲�(���e{\u000e߂C̔<'�u\u001d�X���4�#�\u0015�+��\n�.V�\\����,Ŷ�k�l���{L\u0019;P3Fnʼ�K0/\u0018�d>ȉ\u0016}~\u001a�c)��\u000b\u0005Ο���c���\b� ��%��d\u001dJ�r\t�\u000b��w~E�`s>���j�\u0007�tK�o.��P�Z\u0019��\nk]y;aN\u0001<�4�3K�N�fkބ�A8{��5\u000bѰQ0#A����\n                <,\u0017\u001e\"\u0019န1r��8�3���z�i��[o'�,A�Ź5�\u000b�Rc%J�j:��:BG����,��c����8\u0005~2+U��I��Ui�k�����m�4j\r��H�T�XF\u0005U�4\u001d�,�ozn懋1�P�ΦE����Z�'CK�c⫚��\\�SE�A\u0014\u001c�\u0011��}\fz���\n����9\u001f\b�P��x��/���k�2;0K#\\֤�\u0016�\u0002�?/t�G�zv��ohJ�\u0002M��]S��\u000b\rn+ȯ^�\u0006\b��=ڱ�P\u0011�*�F�\u001f\bh\u001crY�\u0017���TB,{���J\u000e�u��Q\u0014�0R�4D�B�S� dO�v�������9���,ԕi�;\"��\r��]��P4�&�#r�ɠ٦�\u001a���p���t>��\u0007KA�yz\u0011W+��Q��v*��m�-nzg>jS����\u000b\n7\u0015>[��C�\u000f�G��\u0012�F��.�o19\u0002�ۚq\u0019���Z��]\u0013�l>5g�j�}��7w�g�w����\u0014���L>Z�3����m�\u001fM���{�\u0007p)����\u0000>��t�oPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000TD�X+�8\u000b\b\u0001\u0000\u0000w\u0002\u0000\u0000\u0014\u0000\u0004\u0000xl/sharedStrings.xmlSV\u0000\u0000m�1O�0\u0010�w~E�u�\u0010JRU�\fE������\\j��\u001c|\u0017D�=N\u0019��'����r��q}񍁭�J�.W�@:��ҹR�oO�{U�\u00005�{�JM�jSߔ�RD+q����5�\f:�\u001f�����@�6�5\u000f\u0001�a�(�����N;�����׈;?�Tj�Vuɶ.�ލ,�a(�ԥ��\u001f5vpH��Gd�\u0004\u0012�H��`O�A��\u0018N��Kv��̐��a��=\u00041)�rӞ�gקB7�Ո�����\u0004Ŕ5�HAk so]����\u000f�.���ŕB�/��i�v��%����s�_PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000TD�Xִ���\u0001\u0000\u0000�\u0004\u0000\u0000\r\u0000\u0004\u0000xl/styles.xmlSV\u0000\u0000�Tߋ�0\u0010~�_\u0011�ދ.��\u001e��\u0016�{��p[�k��\r�\u000fI�e�_���t�\u0014J}�7��|3I&fO\u0017%�\u0019�\u0013F�4�K(\u0001]�F�.�ߎ��\u000f�8���h��\b�>\u0015�2����\u0013\u0000\u0012���z^{oo��=\u0003\r�v9=!�����\u0004��;Ӄ���X�ћ�c����\u0005%%�!I\u001e��B�\"Ӄ*\u0015:R�AcN\u0013ʊ�5ze\u000e4\u0012EV�3�s��`�V��\r1D��^&��h�i�j#�%��rZ���\u0005Zs5K|�RTV\u0004��»��/?-η!��\u001f�'���`u�\r2�����\u0000�q��,\u001f���&aZ|������R9�\u000bUd\u0012Z�\tVt����Yp\"\u001a�A#xg4�Arɘ���Aʷ0`�۝��%q(��p�$�~���\u0019F�h\u0004��Z���\u001e���]r_�>�}/���\u0001���*��4�\u0018/�Z�'���$E�\u0015\\��VK�߷��Ö�|r���]Ε%abs�\u001a�I��\u001a�D�o\\��l.���#��\u000f&Vi������_�\u0011��H����lp���\u001a:=3����_PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000TD�XJY(ȫ\u0001\u0000\u0000�\u0002\u0000\u0000\u000f\u0000\u0004\u0000xl/workbook.xmlSV\u0000\u0000�R�N�@\u0010}�WX�^l\u0010�6��T \u0014�\u0017TRx���x�޴�N����:i)O�e�������ɚj��ɻV\u001d\u001e4�B�}G�U�Wˏ�T�\t\\\u0007�;l�3�:[|�o}|\\{�XI��\u0003h񅈌q�*��[5�\u0014fu�z@\u000b|�\u0003:��>ZH\u0002�C͒\u0003\u001d\u000f�ɚ��iNk\u000b�v\u0015f�=5|ߓ�\u000b�G�.ME\"\u001aH�\u0012\u000f\u0014X-�=\u0019���� �\u001f`e�'�*\u0003�.;Jص�X���D\u001c×�L\u0006'͉�\u00177����S��@|�s�l�\b��/>�\nt�\r�`�*Q\u001a��d\u0012�\u000bHx\u0015�\u0018��)�\"bO��m��\u0004[rd�%�Ճa\t��o��H/�%0�:zc���Wr�\u0017�&E�D�mx���,X�N\u001b�!�5\u0019Jϭ*o�y���Z�f{[��BV���J̵�z(\u001a�H\u001e�;.E��\u001d���\u0002��2�Κ��y�˧\n�.:�*�5�so��r\"\u0019�\u001f�9\u0017����a�(�����L�?��\u000fPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000TD�X�}\u001dS\n\u0000\u0000mN\u0000\u0000\u0018\u0000\u0004\u0000xl/worksheets/sheet1.xmlSV\u0000\u0000��]s�H\u001a����\u0015\u0014�cP�=5\u0013�;S5[I%ٝc\u0005��\n F�v2�~[|\rB/�;'Az�-=\u0012�/�����/\u0017���ޔ��v�]���b5�f���v��/\u000f?��`��Y��V���G�\u0019�|���ת��y*�f\u0010;�ެ�i,��bS�/Ű����\u000e��f}=\u001am�O�2�\\U�b\u0015+�^�M��\u001fG��&�m{Z.Fj\n                <v�e^��=\\�)}T�y9-���X5�N�b�71��\\o\u000e�}�%�7��ט��='�x��\u001c��L��e9��M5o���r�i���Ѥ���2�����\u0010v�r��k��ߞ�?���q�|-\u0017e�c��p��^�������\"\u001eǘ+�����ݧǌ=��l�}��n��fQ����`�\u001b���bQ��w��0�S��Դ3Fw7�c�Y\u0019�m�&\u001d���v�Kv�\u0010&�\"�%�W\u0016���׃&���X\u0014Ӧ�m�n߮_��[[�=Ίo��S��ﺜ�\u00117'�U������T���\u0016��$�h[ǎ�}�k��/Żb�h7\"6��='[ܮ���a�\u001e�G#��\u0015��y��U�V��+3\u001c�w�\u001f�K����qw^ܰv�!�}��w7u�:�w�p���]v��FOۙ�m���:6q����f�\u00127n�_���\u0012Yw�w�%Tw���\u0012�����\u0012���C\t{\\b\u00143\u001e�*1�:i��\"���Y��Z8��vQ�������~W�b��׉\u001cC�1��q8?T\u001art\u001a�\u001d�{��O\f�)�~;�\u0011�\u0018\nb �� ��\u0018\nb�\u000eb� ��X\bb)�� ��ط�81�� \u000e�t\u001a���n7ۉAvE#\u0007qo\u0007�b\u0010OA<\u0004�tD<\u001d\u0011<\"�\u0018��\u0018A�\u0011(F�\u0018�b\u0004�\u0011.�\boǘ�1&\u0014c\u00021&\u0014�S<\u001fL&�cLގ���rLA:��$ݦ�Q����8�\u001c���R�\u000b�~�i2J�a�\f�d�&KH#\u000f��4��9����+�\r��D\n                    <_��\u000b\u001f`Y�(���|�\u0019��y \u001a�3\u001c����9�@?N�X�Ƀ}f0\u000e\r�\u0019���~�\u000f���\u0011?K\u0018�3y��:c�9'3\u001a��M�y\u001e�����I\u0018�3y��\u001cơ��۴\u0017�a\u001cGq\u0012��L\u001e�3�qH\u0000ݦ�8\u001e�x����Lv@\u00160\u000eI�۴\u0017'`�@q\u00128��\u001e�&\u0018�D�mڋ3����\t|�@\t0P2\fԘ\u0002)�A��y 5�@��@*�\u0006J���0\u0010٠۴\u0017(�@\u0019\u0007J�����_a ���0\u0010��P�\u0014(�\u0007J��\u0018�x�m�\u000b�1��@\t@P2\u0010��@\u0004�n�^ ��\f\u0007J\u0010����P\b���P\b�b ˁ\u0012��d#(4�\"#(4�r\u0018�q�\u0004%(Y\t\n��H\t\n��<\u0006�\u001c(�\tJv�B'(r�B'���\u0002\u0007J�����P\n���P\n\n��X\n*A\nZ��F)h��F)h��f)�\u0004)hY\n\u001a��I\n\u001a��Q\n���\u0013��e)h��&)h��F)h��N�����\u0005(\u0005��\u0018�\u00144J�P�\u0014(A\nZ��F)h��F)h��f)�\u0004)hY\n\u001a��I\n\u001a��w\u0016P�^�R�\tRв\u00144JA�\u00144JA�\u00144KA'HA�R�(\u0005MR�(\u0005�R�,\u0005� \u0005-KA�\u00144IA�\u00144JA�\u0014t�\u0014�,\u0005�R�$\u0005�R�(\u0005�R�\tR0�\u0014\fJ��\u0014\fJ��\u0014\fK�$H��R0(\u0005CR0(\u0005�R0,\u0005� \u0005#K��\u0014\fI��\u0014\fJ��\u0014L�\u0014�,\u0005�R0$\u0005�R0(�C�R��\u001b\f.�a�R0x�\u0001J��\u0014\fK�$H��R0(\u0005CR0(\u0005��:\u0018��I����`P\n��`P\n\u0006w0,\u0005� \u0005#K��\u0014\fI��\u0014\f��`X\n&A\nF��A)\u0018��A)\u0018����\u0014L�\u0014�,\u0005�R0$\u0005�R0xG�a)�\u0004)XY\n\u0016�`I\n\u0016�`�\u0004�R�\tR��\u0014,J��\u0014,J��\t��`\u0013�`e)X��%)X���[@��۲\u0014l�\u0014�,\u0005�R�$\u0005�R����Z��M����`Q\n��`Q\n�` ��M�%��=�(\u0005�w%�\u0014,^S�,\u0005� \u0005+K��\u0014,I��\u0014��@,\u0005� \u0005+K��\u0014,I��\u0014��\u0002�\u0002K�&H��R�(\u0005KR�(\u0005����\u0010��`\u0013�`e)X�B�z~OY�z~۸�c@ˉv�\u000b��u{�t�L\u0005�TpD\u0005�Tpc:D���\u0012��d*8��#*8���0\u0010S�%P��TpH\u0005GTpH\u0005�0\u0010S�%P��TpH�n��$�T��<���h_�tg�N9�d+8��#+8��3����\n.�\nN��C+8�B�����t\u0016\u0003�\u0015\\ʟ1\\�;\u0006��ÿdp\u0018��I�Vp\tVp�\u0015\u001cZ��\u0015:�~ ���\n.�\nN��C+8�B��\u000f�Vpl\u0005�`\u0005'[��\u0015\u001c]U�\u0014��&\u0018��*���\n^��G*x�B��\u000b�\n���\u0013��e*x��'*t��@H\u0005�T�\tT�2\u0015\n                        <R�\u0013\u0015:�~ ��g*�\u0004*x�\n\u001e���B��\u000f�1\u0010_U�\tW\u0015�,\u0005�R�$�N�\u001f�` ��O�����Q\n���Q\n�b ��O�����Q\n���Q\n\u001e��Y\n>A\n��_>�\u0014\n                            <I��\u0014\n                                <J��\u0014|�\u0014�,\u0005�R�$\u0005�R�(\u0005�R�\tR�\u0014\n                                    <J��\u0014\n                                        <J��\u0014\n                                            <K�'H!�R\b(�@R\b(��R\b,�� � K!�\u0014\u0002I!�\u0014\u0002J!�\u0014B�\u0014�,��R\b$��R\b(��R\b\tR\b�\u0014\u0002J!�\u0014\u0002J!h��\u001aX\n!A\nA�B@)\u0004�B@)\u0004��\u0010X\n!A\nA�B@)\u0004�B@)\u0004��\u0010X\n!A\nA�B@)\u0004�B@)\u0004��X\n!A\nA�B@)\u0004�B@)\u0004��!�\u0014B�\u0014�%�\u0014\u0002I!�\u0014\u0002J!�\u0014B�\u0014�,��R\b$��R\b(��R\b$���S��u�j>��\u000f�\u001a<�� �y��\u0014��|.��ӕF�Q�X�'�\u001f��fQ�ce|\u0015�\u0012��\u0019H��M�޾���תi��a�i�D�v*~\u0010ϫ�9L���+z^\u000f����?�\u0017�G\tUuY����n���.Ń1���\\�]\u0010;*�/��!L��?�Y�l;�Po�;�^W_��Շ��n׹۞��\ff�|^�q]\u001ff��/��\u001f�����4���M��l�����S��|\\���{h?��v���G��u|�[�n��u\u0011W\\�t�}}lp:1o7�ؤ3��86�N���}v�Ǽn6�i��j�ϩ\u001a\u001d�\u0014w�PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000TD�X�KR\"x\u0000\u0000\u0000�\u0000\u0000\u0000#\u0000\u0004\u0000xl/worksheets/_rels/sheet1.xml.relsSV\u0000\u0000M�1\u000e\u0002!\u0010\u0000{_A��@\u000bc�q��\u0000�\u000f�p+\u0010a!,1�{)-'��y����$\u0016�p�\f(bW�����~ݟAIG�0\u0015&\u000b_\u0012X��|��}4\u0012b\u00155&,\u0016B�����@\u0019e*�x�gi\u0019���uE�BO�h�I��\u0007��\u0007PK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000TD�XG�D�Z\u0001\u0000\u0000�\u0004\u0000\u0000\u0013\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000\u0000\u0000\u0000\u0000[Content_Types].xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000TD�X\u0017�78�\u0000\u0000\u0000K\u0002\u0000\u0000\u000b\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0001\u0000\u0000_rels/.relsPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000TD�X�$�V�\u0000\u0000\u0000�\u0002\u0000\u0000\u001a\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0002\u0000\u0000xl/_rels/workbook.xml.relsPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000TD�Xad���\u0001\u0000\u0000E\u0003\u0000\u0000\u0010\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0003\u0000\u0000docProps/app.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000TD�X�\u0012�r\u0001\u0000\u0000\u0011\u0003\u0000\u0000\u0011\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0005\u0000\u0000docProps/core.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000TD�Xs�{Y�\u0005\u0000\u0000�\u001b\u0000\u0000\u0013\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000'\u0007\u0000\u0000xl/theme/theme1.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000TD�X+�8\u000b\b\u0001\u0000\u0000w\u0002\u0000\u0000\u0014\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000\u0017\r\u0000\u0000xl/sharedStrings.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000TD�Xִ���\u0001\u0000\u0000�\u0004\u0000\u0000\r\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000U\u000e\u0000\u0000xl/styles.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000TD�XJY(ȫ\u0001\u0000\u0000�\u0002\u0000\u0000\u000f\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000]\u0010\u0000\u0000xl/workbook.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000TD�X�}\u001dS\n\u0000\u0000mN\u0000\u0000\u0018\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u00009\u0012\u0000\u0000xl/worksheets/sheet1.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000TD�X�KR\"x\u0000\u0000\u0000�\u0000\u0000\u0000#\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u001c\u0000\u0000xl/worksheets/_rels/sheet1.xml.relsPK\u0005\u0006\u0000\u0000\u0000\u0000\u000b\u0000\u000b\u0000�\u0002\u0000\u0000�\u001d\u0000\u0000\u0000\u0000"
+						},
+						{
+							"name": "Print Receipt Copy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{blog_api_host}}/api/export-receipt",
+									"host": [
+										"{{blog_api_host}}"
+									],
+									"path": [
+										"api",
+										"export-receipt"
+									],
+									"query": [
+										{
+											"key": "show",
+											"value": "3",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 17 Jul 2024 09:36:30 GMT"
+								},
+								{
+									"key": "Last-Modified",
+									"value": "Wed, 17 Jul 2024 09:36:30 GMT"
+								},
+								{
+									"key": "Content-Disposition",
+									"value": "attachment; filename=ReceiptList.xlsx"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+								},
+								{
+									"key": "Content-Length",
+									"value": "8329"
+								},
+								{
+									"key": "Accept-Ranges",
+									"value": "bytes"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�L�XG�D�Z\u0001\u0000\u0000�\u0004\u0000\u0000\u0013\u0000\u0004\u0000[Content_Types].xmlSV\u0000\u0000���N�0\u0010E�|E�-J��@\b5��\u0012*Q>`�'�UǶl���L����@�nbE�gr=��tW�d�>(k\n6�r��\u0011V*�,���)�cI�`$hk�`{\fl:�\u001a/�\u000eCBb\u0013\nV���9\u000f��\u001aBf\u001d\u001a�RZ_C�W��\u000e�\n��o���\u000bk\"���ƃM�/��Jb2\u0007\u001f��&\f�i\u001e�\r��(#?�\n<t]0pN+\u0001�\n�\u001b#QS[�J��b]�$km�\u001b\u0017~\u0012\u0018�^c\u0018�\n�#�P!�Zg��<�\u0012�:&�;r�2���y�C�\u0019)�=�R����C�u��A�~�aK��\u0013���ջ��K�ެY\r��\u001d:��޺�\t5�\u0000l��(SG���:�^��\u001eχ\u001f��Q��xH��&�v\u0019>X?c���k�*�(_�����}�>���\u000bk�\u0001PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�L�X\u0017�78�\u0000\u0000\u0000K\u0002\u0000\u0000\u000b\u0000\u0004\u0000_rels/.relsSV\u0000\u0000���j�0\f��{\n�{���1F�^ʠ�2�\u0007�l�$���-}�y��\u0005��Î��O��v�y\u001a�;�؋Ӱ.JP��޵\u001a^��\u0003���Y\u001aű�3G�Ww�g\u001e)���>�\fqQC��D���b!�]�i$L��3���\f�2n��\u001e�o\u0006T\u000b�:Z\r�h����[��4�ი��]��\u0002yN�,ە\u000f�>�>\u000f�j\n-'\rV�)�#��EF\u0003^6��n���8q\"K��H��>_\u0019ׄ����eƏ�<⇄�Ud�v��\rT�PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�L�X�$�V�\u0000\u0000\u0000�\u0002\u0000\u0000\u001a\u0000\u0004\u0000xl/_rels/workbook.xml.relsSV\u0000\u0000���j�0\u0010D��\n��ZvZJ)�s)�\\[�\u0003���LlIh7m��U\u001bH\u001c\b�\u0007�Ĭؙ�H���8�OL�\u0007��*J\u0010�M���\u0014|4��g\u0010��[=\u0004�\n&$��w�7\u001c4�\u001dr}$�M<)p��EJ2\u000eGME���M\u001bҨ9��ɨ�^w(We�$��\u0003�\u000bO��\n��V �)��C��\u0006_�9���J�$���/\u001a�:d\u0005G]d\u001f���WK�s��s��<\u000e�[\f\u000f�V�tB��)?���\u0016��0_!��!�\u0019�4�E�ǩ\u0019y���\u001fPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�L�Xad���\u0001\u0000\u0000E\u0003\u0000\u0000\u0010\u0000\u0004\u0000docProps/app.xmlSV\u0000\u0000�SAn�0\u0010��\u0015\u0002�1e�(\n�b�:-rhP\u0003v��ZYD(��n\u0004��/%Ê��T�fg\u0007��T���\u0015=&��Wb�(E�ބ��C%\u001e��o>��\u0018|\r.x��\tI��\u000fj�B��\u0016��\u000e�*�2ǵ�dZ�\u0016��s�\t�\u0003�e:��4��]0/\u001dz����$���k�o�d(Ύ��״\u000ef�GO�S�~Z}��Y\u0003�\u000f�\u001f�I�B�ŷ�A�伩��\u000e�K�|ҥ��R�\f8�dc݀#T�P�\b�̶`\u0013i��G�!\u0015d�䩭D�\u001b\b�8��!Y�,βs1b\u0017���\u0015�3��LJN�\b��9�\u001f�r\u0014dp-�S���#�-;���\u0016\u0012��x9O\n    <f\u0010�e|\u0013��?���E�y�rB\u000f�ဃvB?��Ǹ\u000fw�x\u0019�5�v-$��L�0\u0011�>�M.���É�멤M\u000b�����mcx1O�_���E���P.���\u001f@�\u0005PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�L�Xt\u0004wwr\u0001\u0000\u0000\u0011\u0003\u0000\u0000\u0011\u0000\u0004\u0000docProps/core.xmlSV\u0000\u0000���N�0\u0010D�|E�+J���@�\u0006\tPO !Q\u0004Wc/�ib[�B���qڴ��8E�\u0019?�\\�l�*�\u0006��3��\u0018I@\u000b#�^���b�^��#גWFÌ���MyV\b�\u000b���\u0019\u000b\u000e\u0015�$��υ��\u0015��)�b\u00055������0��\u0018�[R�Ś/��\u0019��\u001a�K��v��\u000eD�EJ1 헫\"@\n\n\u0015Ԡ��l��}\u0016����\u0003�9H�\n[\u000bFw��x5\u0004��\u00195�\u0018\r�g����9��*�U%���\u0014�p�Ѹ�E��itr��\u001ex]�\u0015��\u0018\u001a�P o���i�خ�c@&a��_f�N��\u0017sR���\"e�iv�`��d�O�9c9c�\u0018G�=����?�\u0012�@�\u0015���W&�6�)�\n\u0000c\u001d��\u0005%x���\u001c�h\u001d�\b�����\u001cD�h\rmc��ell���\u001a�[\u001a���/u��\u001fPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�L�Xs�{Y�\u0005\u0000\u0000�\u001b\u0000\u0000\u0013\u0000\u0004\u0000xl/theme/theme1.xmlSV\u0000\u0000�YOo�6\u0014��S\u0010���l)u�:E��햦\r\u0012�C��DK�)Q 餾\r�q��aݰˀ�v\u0018�\u0015h�]�O����\u0001�\n{�c���4i3lC�-������Q�z�A��!\u0011��c9�\u001b\u0016\"��\u0003��\u001d��pp�m!�p\u0012`�\u0013ұfDZ�6?��7TDb��<�\u001b�cEJ�\u001b�-}���2OI\u0002kc.b�`(B;\u0010�\b���n6\u001akv�ib�\u0004����xL}��\u0019Kksμ��+Q2��8�s�:E�\r&N�#g��\u0004:Ĭc���\u001f\r�\u0003e!�������?��y�^\u00101UC��\r�OIW\u0012\u0004�fN'�т�\u0019��W�\u0017��\u0005�U\\�����\u0005�\u001c�}\u001f,uV���t�\n        <5P�ʻ��\u001an\u0015��o��׻ݮ�^���xw\u0005�n��[�\n�]�U��[��Z\u0005�-�k+����5���A\u0011��d\u0005��s\u0011�\u0005d��\r#�\r��|\u0003,Q���\n�D���\u0018��b\u0000�<�X�\u0004�YJ��\u0007\\\u000f�#Aq&\u0000o\u0010��\u0014S�\\��d!�\u000b����Q�!#��W�x��)z�����g�\u000f>~����O\u0006�\u001b8\tu�}��7��?�~���f�����鯿|a\u0006*\u001d��'�?{��������\u0001�%�H�\u000fiL$�E��>��6�\u00002\u0012�\u0018F�V(p\u0004H\u0003���\n��\f3\u0013�K�λ+�\u0000��ק�+�\u001eDb��\u0001�\u0013�\u0015�.�˅ќ�L�n�4\t���T��c|h��;\u0011��4��LM,{\u0011���� �8$\tQ([�\u0013B\fd�(��u���K>V�\u001eE]L�.\u0019ґ2\u0013ݠ1�efR\u0010B]���]����~�\u001cV��\u0010��X\u0012Vq�u\n            <U86j�c�#ob\u0015��<�\t��p� �!a\u001c�\u0003\"��涘U���P��a�e���\u0014�NLț�s\u001d��'�\bǩQg�D:�C9�-��\u001eWF%x5C�1�\u0001'��K�:_Zߡad� ��T�R��j>��\u0018����J\u001d�䴲�(���e{\u000e߂C̔<'�u\u001d�X���4�#�\u0015�+��\n�.V�\\����,Ŷ�k�l���{L\u0019;P3Fnʼ�K0/\u0018�d>ȉ\u0016}~\u001a�c)��\u000b\u0005Ο���c���\b� ��%��d\u001dJ�r\t�\u000b��w~E�`s>���j�\u0007�tK�o.��P�Z\u0019��\nk]y;aN\u0001<�4�3K�N�fkބ�A8{��5\u000bѰQ0#A����<,\u0017\u001e\"\u0019န1r��8�3���z�i��[o'�,A�Ź5�\u000b�Rc%J�j:��:BG����,��c����8\u0005~2+U��I��Ui�k�����m�4j\r��H�T�XF\u0005U�4\u001d�,�ozn懋1�P�ΦE����Z�'CK�c⫚��\\�SE�A\u0014\u001c�\u0011��}\fz���\n����9\u001f\b�P��x��/���k�2;0K#\\֤�\u0016�\u0002�?/t�G�zv��ohJ�\u0002M��]S��\u000b\rn+ȯ^�\u0006\b��=ڱ�P\u0011�*�F�\u001f\bh\u001crY�\u0017���TB,{���J\u000e�u��Q\u0014�0R�4D�B�S� dO�v�������9���,ԕi�;\"��\r��]��P4�&�#r�ɠ٦�\u001a���p���t>��\u0007KA�yz\u0011W+��Q��v*��m�-nzg>jS����\u000b\n7\u0015>[��C�\u000f�G��\u0012�F��.�o19\u0002�ۚq\u0019���Z��]\u0013�l>5g�j�}��7w�g�w����\u0014���L>Z�3����m�\u001fM���{�\u0007p)����\u0000>��t�oPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�L�X+�8\u000b\b\u0001\u0000\u0000w\u0002\u0000\u0000\u0014\u0000\u0004\u0000xl/sharedStrings.xmlSV\u0000\u0000m�1O�0\u0010�w~E�u�\u0010JRU�\fE������\\j��\u001c|\u0017D�=N\u0019��'����r��q}񍁭�J�.W�@:��ҹR�oO�{U�\u00005�{�JM�jSߔ�RD+q����5�\f:�\u001f�����@�6�5\u000f\u0001�a�(�����N;�����׈;?�Tj�Vuɶ.�ލ,�a(�ԥ��\u001f5vpH��Gd�\u0004\u0012�H��`O�A��\u0018N��Kv��̐��a��=\u00041)�rӞ�gקB7�Ո�����\u0004Ŕ5�HAk so]����\u000f�.���ŕB�/��i�v��%����s�_PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�L�X��:S�\u0001\u0000\u0000f\u0005\u0000\u0000\r\u0000\u0004\u0000xl/styles.xmlSV\u0000\u0000�TKk�0\u0010��W\b�\u001b�\u0016R�`;�\u0005C\u000f\r�l�W�\u001e�\"z\u0018I^����û��-\r=D\u0017�|����c�ݟ�@G0�k�cz��\bT�\u001b��\u001c�8��?bd\u001dS\r\u0013ZA�'���x�Y7\tx�\u0001\u001c�\fwv`�_\u001d\fX0G�\u0001T6ǽs�\u001d!��A2{�\u0007P~��F2�]�\u0011�sXc\u0003�\u0014d��} �q��L���΢Z���x�I��Z-�\u001e'��*tdb\u000e�+�:ßa\u0005��V~/q�W�)\r^��6�tU��r\u0017G�\u0015�3�\u0017&xex\u0000I\u0012���7����ep!���\"\u001b�s`T�\u001d4ۇi��\u0000���\u0011�\u00196���*!N^�Ҧ�og���\"\u0013�:�`xׇ�遄E��F�Y�\u0015\u0013���L\u0014�]�]��g���n���2D_��\r_}\rB<\u0005�e\u000bԳ�Z����&�\u001b\n�|6��g3�$'��\u0012��v�hOퟔ[����\r��J�� y�������V1�`�>G��\u0010�S\u0012.�t�$����$�\u001f%ѿ�D�[]��r.(\n���Ǡ&�j��qu�b\n                <gsj�\u001f�c��ǒJ\u0003-\u001b�;\\�\u001c/�7h�(?�s�w~�n���\u0012\u001a��,?d�\u001bPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�L�XJY(ȫ\u0001\u0000\u0000�\u0002\u0000\u0000\u000f\u0000\u0004\u0000xl/workbook.xmlSV\u0000\u0000�R�N�@\u0010}�WX�^l\u0010�6��T \u0014�\u0017TRx���x�޴�N����:i)O�e�������ɚj��ɻV\u001d\u001e4�B�}G�U�Wˏ�T�\t\\\u0007�;l�3�:[|�o}|\\{�XI��\u0003h񅈌q�*��[5�\u0014fu�z@\u000b|�\u0003:��>ZH\u0002�C͒\u0003\u001d\u000f�ɚ��iNk\u000b�v\u0015f�=5|ߓ�\u000b�G�.ME\"\u001aH�\u0012\u000f\u0014X-�=\u0019���� �\u001f`e�'�*\u0003�.;Jص�X���D\u001c×�L\u0006'͉�\u00177����S��@|�s�l�\b��/>�\nt�\r�`�*Q\u001a��d\u0012�\u000bHx\u0015�\u0018��)�\"bO��m��\u0004[rd�%�Ճa\t��o��H/�%0�:zc���Wr�\u0017�&E�D�mx���,X�N\u001b�!�5\u0019Jϭ*o�y���Z�f{[��BV���J̵�z(\u001a�H\u001e�;.E��\u001d���\u0002��2�Κ��y�˧\n�.:�*�5�so��r\"\u0019�\u001f�9\u0017����a�(�����L�?��\u000fPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�L�X�}\u001dS\n\u0000\u0000mN\u0000\u0000\u0018\u0000\u0004\u0000xl/worksheets/sheet1.xmlSV\u0000\u0000��]s�H\u001a����\u0015\u0014�cP�=5\u0013�;S5[I%ٝc\u0005��\n F�v2�~[|\rB/�;'Az�-=\u0012�/�����/\u0017���ޔ��v�]���b5�f���v��/\u000f?��`��Y��V���G�\u0019�|���ת��y*�f\u0010;�ެ�i,��bS�/Ű����\u000e��f}=\u001am�O�2�\\U�b\u0015+�^�M��\u001fG��&�m{Z.Fj\n                <v�e^��=\\�)}T�y9-���X5�N�b�71��\\o\u000e�}�%�7��ט��='�x��\u001c��L��e9��M5o���r�i���Ѥ���2�����\u0010v�r��k��ߞ�?���q�|-\u0017e�c��p��^�������\"\u001eǘ+�����ݧǌ=��l�}��n��fQ����`�\u001b���bQ��w��0�S��Դ3Fw7�c�Y\u0019�m�&\u001d���v�Kv�\u0010&�\"�%�W\u0016���׃&���X\u0014Ӧ�m�n߮_��[[�=Ίo��S��ﺜ�\u00117'�U������T���\u0016��$�h[ǎ�}�k��/Żb�h7\"6��='[ܮ���a�\u001e�G#��\u0015��y��U�V��+3\u001c�w�\u001f�K����qw^ܰv�!�}��w7u�:�w�p���]v��FOۙ�m���:6q����f�\u00127n�_���\u0012Yw�w�%Tw���\u0012�����\u0012���C\t{\\b\u00143\u001e�*1�:i��\"���Y��Z8��vQ�������~W�b��׉\u001cC�1��q8?T\u001art\u001a�\u001d�{��O\f�)�~;�\u0011�\u0018\nb �� ��\u0018\nb�\u000eb� ��X\bb)�� ��ط�81�� \u000e�t\u001a���n7ۉAvE#\u0007qo\u0007�b\u0010OA<\u0004�tD<\u001d\u0011<\"�\u0018��\u0018A�\u0011(F�\u0018�b\u0004�\u0011.�\boǘ�1&\u0014c\u00021&\u0014�S<\u001fL&�cLގ���rLA:��$ݦ�Q����8�\u001c���R�\u000b�~�i2J�a�\f�d�&KH#\u000f��4��9����+�\r��D\n                    <_��\u000b\u001f`Y�(���|�\u0019��y \u001a�3\u001c����9�@?N�X�Ƀ}f0\u000e\r�\u0019���~�\u000f���\u0011?K\u0018�3y��:c�9'3\u001a��M�y\u001e�����I\u0018�3y��\u001cơ��۴\u0017�a\u001cGq\u0012��L\u001e�3�qH\u0000ݦ�8\u001e�x����Lv@\u00160\u000eI�۴\u0017'`�@q\u00128��\u001e�&\u0018�D�mڋ3����\t|�@\t0P2\fԘ\u0002)�A��y 5�@��@*�\u0006J���0\u0010٠۴\u0017(�@\u0019\u0007J�����_a ���0\u0010��P�\u0014(�\u0007J��\u0018�x�m�\u000b�1��@\t@P2\u0010��@\u0004�n�^ ��\f\u0007J\u0010����P\b���P\b�b ˁ\u0012��d#(4�\"#(4�r\u0018�q�\u0004%(Y\t\n��H\t\n��<\u0006�\u001c(�\tJv�B'(r�B'���\u0002\u0007J�����P\n���P\n\n��X\n*A\nZ��F)h��F)h��f)�\u0004)hY\n\u001a��I\n\u001a��Q\n���\u0013��e)h��&)h��F)h��N�����\u0005(\u0005��\u0018�\u00144J�P�\u0014(A\nZ��F)h��F)h��f)�\u0004)hY\n\u001a��I\n\u001a��w\u0016P�^�R�\tRв\u00144JA�\u00144JA�\u00144KA'HA�R�(\u0005MR�(\u0005�R�,\u0005� \u0005-KA�\u00144IA�\u00144JA�\u0014t�\u0014�,\u0005�R�$\u0005�R�(\u0005�R�\tR0�\u0014\fJ��\u0014\fJ��\u0014\fK�$H��R0(\u0005CR0(\u0005�R0,\u0005� \u0005#K��\u0014\fI��\u0014\fJ��\u0014L�\u0014�,\u0005�R0$\u0005�R0(�C�R��\u001b\f.�a�R0x�\u0001J��\u0014\fK�$H��R0(\u0005CR0(\u0005��:\u0018��I����`P\n��`P\n\u0006w0,\u0005� \u0005#K��\u0014\fI��\u0014\f��`X\n&A\nF��A)\u0018��A)\u0018����\u0014L�\u0014�,\u0005�R0$\u0005�R0xG�a)�\u0004)XY\n\u0016�`I\n\u0016�`�\u0004�R�\tR��\u0014,J��\u0014,J��\t��`\u0013�`e)X��%)X���[@��۲\u0014l�\u0014�,\u0005�R�$\u0005�R����Z��M����`Q\n��`Q\n�` ��M�%��=�(\u0005�w%�\u0014,^S�,\u0005� \u0005+K��\u0014,I��\u0014��@,\u0005� \u0005+K��\u0014,I��\u0014��\u0002�\u0002K�&H��R�(\u0005KR�(\u0005����\u0010��`\u0013�`e)X�B�z~OY�z~۸�c@ˉv�\u000b��u{�t�L\u0005�TpD\u0005�Tpc:D���\u0012��d*8��#*8���0\u0010S�%P��TpH\u0005GTpH\u0005�0\u0010S�%P��TpH�n��$�T��<���h_�tg�N9�d+8��#+8��3����\n.�\nN��C+8�B�����t\u0016\u0003�\u0015\\ʟ1\\�;\u0006��ÿdp\u0018��I�Vp\tVp�\u0015\u001cZ��\u0015:�~ ���\n.�\nN��C+8�B��\u000f�Vpl\u0005�`\u0005'[��\u0015\u001c]U�\u0014��&\u0018��*���\n^��G*x�B��\u000b�\n���\u0013��e*x��'*t��@H\u0005�T�\tT�2\u0015\n                        <R�\u0013\u0015:�~ ��g*�\u0004*x�\n\u001e���B��\u000f�1\u0010_U�\tW\u0015�,\u0005�R�$�N�\u001f�` ��O�����Q\n���Q\n�b ��O�����Q\n���Q\n\u001e��Y\n>A\n��_>�\u0014\n                            <I��\u0014\n                                <J��\u0014|�\u0014�,\u0005�R�$\u0005�R�(\u0005�R�\tR�\u0014\n                                    <J��\u0014\n                                        <J��\u0014\n                                            <K�'H!�R\b(�@R\b(��R\b,�� � K!�\u0014\u0002I!�\u0014\u0002J!�\u0014B�\u0014�,��R\b$��R\b(��R\b\tR\b�\u0014\u0002J!�\u0014\u0002J!h��\u001aX\n!A\nA�B@)\u0004�B@)\u0004��\u0010X\n!A\nA�B@)\u0004�B@)\u0004��\u0010X\n!A\nA�B@)\u0004�B@)\u0004��X\n!A\nA�B@)\u0004�B@)\u0004��!�\u0014B�\u0014�%�\u0014\u0002I!�\u0014\u0002J!�\u0014B�\u0014�,��R\b$��R\b(��R\b$���S��u�j>��\u000f�\u001a<�� �y��\u0014��|.��ӕF�Q�X�'�\u001f��fQ�ce|\u0015�\u0012��\u0019H��M�޾���תi��a�i�D�v*~\u0010ϫ�9L���+z^\u000f����?�\u0017�G\tUuY����n���.Ń1���\\�]\u0010;*�/��!L��?�Y�l;�Po�;�^W_��Շ��n׹۞��\ff�|^�q]\u001ff��/��\u001f�����4���M��l�����S��|\\���{h?��v���G��u|�[�n��u\u0011W\\�t�}}lp:1o7�ؤ3��86�N���}v�Ǽn6�i��j�ϩ\u001a\u001d�\u0014w�PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�L�X�KR\"x\u0000\u0000\u0000�\u0000\u0000\u0000#\u0000\u0004\u0000xl/worksheets/_rels/sheet1.xml.relsSV\u0000\u0000M�1\u000e\u0002!\u0010\u0000{_A��@\u000bc�q��\u0000�\u000f�p+\u0010a!,1�{)-'��y����$\u0016�p�\f(bW�����~ݟAIG�0\u0015&\u000b_\u0012X��|��}4\u0012b\u00155&,\u0016B�����@\u0019e*�x�gi\u0019���uE�BO�h�I��\u0007��\u0007PK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�L�XG�D�Z\u0001\u0000\u0000�\u0004\u0000\u0000\u0013\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000\u0000\u0000\u0000\u0000[Content_Types].xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�L�X\u0017�78�\u0000\u0000\u0000K\u0002\u0000\u0000\u000b\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0001\u0000\u0000_rels/.relsPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�L�X�$�V�\u0000\u0000\u0000�\u0002\u0000\u0000\u001a\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0002\u0000\u0000xl/_rels/workbook.xml.relsPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�L�Xad���\u0001\u0000\u0000E\u0003\u0000\u0000\u0010\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0003\u0000\u0000docProps/app.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�L�Xt\u0004wwr\u0001\u0000\u0000\u0011\u0003\u0000\u0000\u0011\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0005\u0000\u0000docProps/core.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�L�Xs�{Y�\u0005\u0000\u0000�\u001b\u0000\u0000\u0013\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000'\u0007\u0000\u0000xl/theme/theme1.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�L�X+�8\u000b\b\u0001\u0000\u0000w\u0002\u0000\u0000\u0014\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000\u0017\r\u0000\u0000xl/sharedStrings.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�L�X��:S�\u0001\u0000\u0000f\u0005\u0000\u0000\r\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000U\u000e\u0000\u0000xl/styles.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�L�XJY(ȫ\u0001\u0000\u0000�\u0002\u0000\u0000\u000f\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000|\u0010\u0000\u0000xl/workbook.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�L�X�}\u001dS\n\u0000\u0000mN\u0000\u0000\u0018\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000X\u0012\u0000\u0000xl/worksheets/sheet1.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�L�X�KR\"x\u0000\u0000\u0000�\u0000\u0000\u0000#\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u001c\u0000\u0000xl/worksheets/_rels/sheet1.xml.relsPK\u0005\u0006\u0000\u0000\u0000\u0000\u000b\u0000\u000b\u0000�\u0002\u0000\u0000�\u001d\u0000\u0000\u0000\u0000"
+						},
+						{
+							"name": "Print Receipt Copy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{blog_api_host}}/api/export-receipt",
+									"host": [
+										"{{blog_api_host}}"
+									],
+									"path": [
+										"api",
+										"export-receipt"
+									],
+									"query": [
+										{
+											"key": "show",
+											"value": "3",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 17 Jul 2024 09:47:32 GMT"
+								},
+								{
+									"key": "Last-Modified",
+									"value": "Wed, 17 Jul 2024 09:47:32 GMT"
+								},
+								{
+									"key": "Content-Disposition",
+									"value": "attachment; filename=ReceiptList.xlsx"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+								},
+								{
+									"key": "Content-Length",
+									"value": "8370"
+								},
+								{
+									"key": "Accept-Ranges",
+									"value": "bytes"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�M�XG�D�Z\u0001\u0000\u0000�\u0004\u0000\u0000\u0013\u0000\u0004\u0000[Content_Types].xmlSV\u0000\u0000���N�0\u0010E�|E�-J��@\b5��\u0012*Q>`�'�UǶl���L����@�nbE�gr=��tW�d�>(k\n6�r��\u0011V*�,���)�cI�`$hk�`{\fl:�\u001a/�\u000eCBb\u0013\nV���9\u000f��\u001aBf\u001d\u001a�RZ_C�W��\u000e�\n��o���\u000bk\"���ƃM�/��Jb2\u0007\u001f��&\f�i\u001e�\r��(#?�\n<t]0pN+\u0001�\n�\u001b#QS[�J��b]�$km�\u001b\u0017~\u0012\u0018�^c\u0018�\n�#�P!�Zg��<�\u0012�:&�;r�2���y�C�\u0019)�=�R����C�u��A�~�aK��\u0013���ջ��K�ެY\r��\u001d:��޺�\t5�\u0000l��(SG���:�^��\u001eχ\u001f��Q��xH��&�v\u0019>X?c���k�*�(_�����}�>���\u000bk�\u0001PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�M�X\u0017�78�\u0000\u0000\u0000K\u0002\u0000\u0000\u000b\u0000\u0004\u0000_rels/.relsSV\u0000\u0000���j�0\f��{\n�{���1F�^ʠ�2�\u0007�l�$���-}�y��\u0005��Î��O��v�y\u001a�;�؋Ӱ.JP��޵\u001a^��\u0003���Y\u001aű�3G�Ww�g\u001e)���>�\fqQC��D���b!�]�i$L��3���\f�2n��\u001e�o\u0006T\u000b�:Z\r�h����[��4�ი��]��\u0002yN�,ە\u000f�>�>\u000f�j\n-'\rV�)�#��EF\u0003^6��n���8q\"K��H��>_\u0019ׄ����eƏ�<⇄�Ud�v��\rT�PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�M�X�$�V�\u0000\u0000\u0000�\u0002\u0000\u0000\u001a\u0000\u0004\u0000xl/_rels/workbook.xml.relsSV\u0000\u0000���j�0\u0010D��\n��ZvZJ)�s)�\\[�\u0003���LlIh7m��U\u001bH\u001c\b�\u0007�Ĭؙ�H���8�OL�\u0007��*J\u0010�M���\u0014|4��g\u0010��[=\u0004�\n&$��w�7\u001c4�\u001dr}$�M<)p��EJ2\u000eGME���M\u001bҨ9��ɨ�^w(We�$��\u0003�\u000bO��\n��V �)��C��\u0006_�9���J�$���/\u001a�:d\u0005G]d\u001f���WK�s��s��<\u000e�[\f\u000f�V�tB��)?���\u0016��0_!��!�\u0019�4�E�ǩ\u0019y���\u001fPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�M�Xad���\u0001\u0000\u0000E\u0003\u0000\u0000\u0010\u0000\u0004\u0000docProps/app.xmlSV\u0000\u0000�SAn�0\u0010��\u0015\u0002�1e�(\n�b�:-rhP\u0003v��ZYD(��n\u0004��/%Ê��T�fg\u0007��T���\u0015=&��Wb�(E�ބ��C%\u001e��o>��\u0018|\r.x��\tI��\u000fj�B��\u0016��\u000e�*�2ǵ�dZ�\u0016��s�\t�\u0003�e:��4��]0/\u001dz����$���k�o�d(Ύ��״\u000ef�GO�S�~Z}��Y\u0003�\u000f�\u001f�I�B�ŷ�A�伩��\u000e�K�|ҥ��R�\f8�dc݀#T�P�\b�̶`\u0013i��G�!\u0015d�䩭D�\u001b\b�8��!Y�,βs1b\u0017���\u0015�3��LJN�\b��9�\u001f�r\u0014dp-�S���#�-;���\u0016\u0012��x9O\n    <f\u0010�e|\u0013��?���E�y�rB\u000f�ဃvB?��Ǹ\u000fw�x\u0019�5�v-$��L�0\u0011�>�M.���É�멤M\u000b�����mcx1O�_���E���P.���\u001f@�\u0005PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�M�X����s\u0001\u0000\u0000\u0011\u0003\u0000\u0000\u0011\u0000\u0004\u0000docProps/core.xmlSV\u0000\u0000���N�0\u0010D�|E�+J���B�\u0006\t\u0010'*!�\b��^Z�Ķ�-i�\u001e�iS\n�8E�\u0019?�\\���*�\u0004��3��\u0018I@\u000b#�^����!�\"�G�%���\u0019i����\u00106\u0017���3\u0016\u001c*�I\u0000i�\u000b;#kD�S��\u001aj�G!���n\\�1H����\r_\u0001\u001d3vIk@.9r�\u0001S;\u0010�\u001e)ŀ�[WE�\u0014\u0014*�A���(��,����\u0007��-Y+l-�\u0019=�Cz��\u0010l�f�Lb4̟����\"��*�U%���\u0014�p�Ѹ�Yo�itr��~�\u001e+�q\u001e\u001aW o���ߑb�f�\u0001����~���2��_>�r��\u0017)���tɮ�i>\u0019�3�3֍q\u00029R��M��\u001e(�\u000bTXAX-~e���N��\u0000\u0018���.(�\u000b�,��XF��G�~��\u0001\u0002{s\u0010��\r��qҗ����^j�oe\\�[?��+.�\u0000PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�M�Xs�{Y�\u0005\u0000\u0000�\u001b\u0000\u0000\u0013\u0000\u0004\u0000xl/theme/theme1.xmlSV\u0000\u0000�YOo�6\u0014��S\u0010���l)u�:E��햦\r\u0012�C��DK�)Q 餾\r�q��aݰˀ�v\u0018�\u0015h�]�O����\u0001�\n{�c���4i3lC�-������Q�z�A��!\u0011��c9�\u001b\u0016\"��\u0003��\u001d��pp�m!�p\u0012`�\u0013ұfDZ�6?��7TDb��<�\u001b�cEJ�\u001b�-}���2OI\u0002kc.b�`(B;\u0010�\b���n6\u001akv�ib�\u0004����xL}��\u0019Kksμ��+Q2��8�s�:E�\r&N�#g��\u0004:Ĭc���\u001f\r�\u0003e!�������?��y�^\u00101UC��\r�OIW\u0012\u0004�fN'�т�\u0019��W�\u0017��\u0005�U\\�����\u0005�\u001c�}\u001f,uV���t�\n        <5P�ʻ��\u001an\u0015��o��׻ݮ�^���xw\u0005�n��[�\n�]�U��[��Z\u0005�-�k+����5���A\u0011��d\u0005��s\u0011�\u0005d��\r#�\r��|\u0003,Q���\n�D���\u0018��b\u0000�<�X�\u0004�YJ��\u0007\\\u000f�#Aq&\u0000o\u0010��\u0014S�\\��d!�\u000b����Q�!#��W�x��)z�����g�\u000f>~����O\u0006�\u001b8\tu�}��7��?�~���f�����鯿|a\u0006*\u001d��'�?{��������\u0001�%�H�\u000fiL$�E��>��6�\u00002\u0012�\u0018F�V(p\u0004H\u0003���\n��\f3\u0013�K�λ+�\u0000��ק�+�\u001eDb��\u0001�\u0013�\u0015�.�˅ќ�L�n�4\t���T��c|h��;\u0011��4��LM,{\u0011���� �8$\tQ([�\u0013B\fd�(��u���K>V�\u001eE]L�.\u0019ґ2\u0013ݠ1�efR\u0010B]���]����~�\u001cV��\u0010��X\u0012Vq�u\n            <U86j�c�#ob\u0015��<�\t��p� �!a\u001c�\u0003\"��涘U���P��a�e���\u0014�NLț�s\u001d��'�\bǩQg�D:�C9�-��\u001eWF%x5C�1�\u0001'��K�:_Zߡad� ��T�R��j>��\u0018����J\u001d�䴲�(���e{\u000e߂C̔<'�u\u001d�X���4�#�\u0015�+��\n�.V�\\����,Ŷ�k�l���{L\u0019;P3Fnʼ�K0/\u0018�d>ȉ\u0016}~\u001a�c)��\u000b\u0005Ο���c���\b� ��%��d\u001dJ�r\t�\u000b��w~E�`s>���j�\u0007�tK�o.��P�Z\u0019��\nk]y;aN\u0001<�4�3K�N�fkބ�A8{��5\u000bѰQ0#A����<,\u0017\u001e\"\u0019န1r��8�3���z�i��[o'�,A�Ź5�\u000b�Rc%J�j:��:BG����,��c����8\u0005~2+U��I��Ui�k�����m�4j\r��H�T�XF\u0005U�4\u001d�,�ozn懋1�P�ΦE����Z�'CK�c⫚��\\�SE�A\u0014\u001c�\u0011��}\fz���\n����9\u001f\b�P��x��/���k�2;0K#\\֤�\u0016�\u0002�?/t�G�zv��ohJ�\u0002M��]S��\u000b\rn+ȯ^�\u0006\b��=ڱ�P\u0011�*�F�\u001f\bh\u001crY�\u0017���TB,{���J\u000e�u��Q\u0014�0R�4D�B�S� dO�v�������9���,ԕi�;\"��\r��]��P4�&�#r�ɠ٦�\u001a���p���t>��\u0007KA�yz\u0011W+��Q��v*��m�-nzg>jS����\u000b\n7\u0015>[��C�\u000f�G��\u0012�F��.�o19\u0002�ۚq\u0019���Z��]\u0013�l>5g�j�}��7w�g�w����\u0014���L>Z�3����m�\u001fM���{�\u0007p)����\u0000>��t�oPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�M�X+�8\u000b\b\u0001\u0000\u0000w\u0002\u0000\u0000\u0014\u0000\u0004\u0000xl/sharedStrings.xmlSV\u0000\u0000m�1O�0\u0010�w~E�u�\u0010JRU�\fE������\\j��\u001c|\u0017D�=N\u0019��'����r��q}񍁭�J�.W�@:��ҹR�oO�{U�\u00005�{�JM�jSߔ�RD+q����5�\f:�\u001f�����@�6�5\u000f\u0001�a�(�����N;�����׈;?�Tj�Vuɶ.�ލ,�a(�ԥ��\u001f5vpH��Gd�\u0004\u0012�H��`O�A��\u0018N��Kv��̐��a��=\u00041)�rӞ�gקB7�Ո�����\u0004Ŕ5�HAk so]����\u000f�.���ŕB�/��i�v��%����s�_PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�M�XQ��a\u001b\u0002\u0000\u0000/\b\u0000\u0000\r\u0000\u0004\u0000xl/styles.xmlSV\u0000\u0000�U�n�0\u0010}�WX~o\fۤj# j+!��Q�l��\u001a\u0018X+� ۬v���\u0005\u0016hWʪ�%�x��̙\u0003\u001a��� 8ڃ6L�\u001c�W\tF k�0���۶|�\u000e#c�l(W\u0012r|\u0004��W��G\u000e\u000f;\u0000��­�i�v{\r\u0006�\u001e�\u0007�������\u0010S�@Ps�z�n�UZP�R�\u0011�jhc���d�$o��L�\"��(�5�V��9N0)�V�\u0019��\b\u0014Y����\u0014�����\t\u0016�\u0010c��%��y���V\\i��*�e���Ò�Q�\u0013��̃$6^�O�y��\u0018g�q��,\u000e(��Z\u000bZ�.Ac�=�0\u001b ��\f����nn\u0016\u0005aq}+�\u001b7;S�k\n                <AEơ��@�n�W�z�7�U�\u0005\r����{ɩbY��|���X���67�\tv\n                    <w���BG��\\Z\u0012��{'/�Х���?͏�\u001b�\u001a8����i�R�zhQ<\u001e>7��B�?�B7�c\u0018eb���jQ{!{\u001de\u000f����V��\u0011�{~,U<�bv?�\nt\u0019N�\u0005�\t��Ǡ1�\u001f8뤀Ӊw�Rz��te)�\rK韶�yy���5Kd���\u0010�F��\"����w�x~�j`�2yf|�fsh�7�����c�\u0006Z:p�=A9��/аA��\u0013�+�+;�B\n                        <SõD櫾�\u0001PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�M�XJY(ȫ\u0001\u0000\u0000�\u0002\u0000\u0000\u000f\u0000\u0004\u0000xl/workbook.xmlSV\u0000\u0000�R�N�@\u0010}�WX�^l\u0010�6��T \u0014�\u0017TRx���x�޴�N����:i)O�e�������ɚj��ɻV\u001d\u001e4�B�}G�U�Wˏ�T�\t\\\u0007�;l�3�:[|�o}|\\{�XI��\u0003h񅈌q�*��[5�\u0014fu�z@\u000b|�\u0003:��>ZH\u0002�C͒\u0003\u001d\u000f�ɚ��iNk\u000b�v\u0015f�=5|ߓ�\u000b�G�.ME\"\u001aH�\u0012\u000f\u0014X-�=\u0019���� �\u001f`e�'�*\u0003�.;Jص�X���D\u001c×�L\u0006'͉�\u00177����S��@|�s�l�\b��/>�\nt�\r�`�*Q\u001a��d\u0012�\u000bHx\u0015�\u0018��)�\"bO��m��\u0004[rd�%�Ճa\t��o��H/�%0�:zc���Wr�\u0017�&E�D�mx���,X�N\u001b�!�5\u0019Jϭ*o�y���Z�f{[��BV���J̵�z(\u001a�H\u001e�;.E��\u001d���\u0002��2�Κ��y�˧\n�.:�*�5�so��r\"\u0019�\u001f�9\u0017����a�(�����L�?��\u000fPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�M�X=\u0016\u000b�X\n\u0000\u0000mN\u0000\u0000\u0018\u0000\u0004\u0000xl/worksheets/sheet1.xmlSV\u0000\u0000��]s�H\u001a����\u0015\u0014�cP�=5\u0013�;S5[I%ٝc\u0005��\n F�v2�~[|\rB/�;'Az�-=\u0012�/�����/\u0017���ޔ��v�]���b5�f���v��/\u000f?��`��Y��V���G�\u0019�|���ת��y*�f\u0010;�ެ�i,��bS�/Ű����\u000e��f}=\u001am�O�2�\\U�b\u0015+�^�M��\u001fG��&�m{Z.Fj\n                        <v�e^��=\\�)}T�y9-���X5�N�b�71��\\o\u000e�}�%�7��ט��='�x��\u001c��L��e9��M5o���r�i���Ѥ���2�����\u0010v�r��k��ߞ�?���q�|-\u0017e�c��p��^�������\"\u001eǘ+�����ݧǌ=��l�}��n��fQ����`�\u001b���bQ��w��0�S��Դ3Fw7�c�Y\u0019�m�&\u001d���v�Kv�\u0010&�\"�%�W\u0016���׃&���X\u0014Ӧ�m�n߮_��[[�=Ίo��S��ﺜ�\u00117'�U������T���\u0016��$�h[ǎ�}�k��/Żb�h7\"6��='[ܮ���a�\u001e�G#��\u0015��y��U�V��+3\u001c�w�\u001f�K����qw^ܰv�!�}��w7u�:�w�p���]v��FOۙ�m���:6q����f�\u00127n�_���\u0012�d���Ļ�\u0012���}\t�]�}\t�]�a��>Y�\u001e�\u0018ŌǠJ\fzڵ;�xZ�g�Nk�,��E\u0019�������]ъŇ�^'r\f-�8͟�\u001f*\r9:\rώ���'\u0006�\u0014D�\u001dĈA\f\u00051\u0010�P\u0010CA\f\u00051o\u0007�b\u0010KA,\u0004�\u0014�R\u0010KA��A�\u0018�Q\u0010\u0007A:\r�O}���� �������x1�� \u001e�x:\"���?\u001e�^\f�v� �\b\u0014#@�@1\u0002�\b�c��cL�\u0018\u0013�1�\u0018\u0013��)�\u000f&��1&o����H9� ��y�n��(�jo`\u001c_\u000e�iy)ͅq?�4\u0019��0M�i2H�%��\u0007�La�N՜�Q����l\"�/��\u000f�,a���a>�\f��<\u0010\r�\u0019���j��@�\u001f'a����>3\u0018���\f��l?�\u0007�����%\f��<�g�����\u0019��ݦ�<���c��$\f��<�g\u000e����mڋ�0��8\t�&����8$�n�^\u001c�q<�I`@&; \u000b\u0018�$�mڋ\u00130N�8\t\u001c�d\u000fd\u0013�C\"�6�ř�G��\u0004>B�\u0004\u0018(\u0019\u0006jL�\u0014����<�\u001aS�C�B �`\u0003%�@e\u0018�l�m�\u000b�a��\u0003%�@]��0\u0010~�W\u0018\bup�^\n��\u0003%�@i\fD<�6�\u0005�\u0018Hs�\u0004 (\u0019\b�` \u0002B�i/��@�\u0003%\bA�BP(\u0004EBP(\u0004e1��@\tFP�\u0011\u0014\u001aA�\u0011\u0014\u001aA9\f�8P�\u0012��\u0004�JP�\u0004�JP\u001e\u0003y\u000e��\u0004%;A�\u0013\u00149A�\u0013T�@�\u0003%HA�RP(\u0005ERP(\u0005�RP,\u0005� \u0005-KA�\u00144IA�\u00144JA�\u0014t�\u0014�,\u0005�R�$\u0005�R�(\u0005�R�\tRв\u00144JA�\u00144JA�\u00144KA��\\p��\u0002���_\fP\n\u001a�p�^\n� \u0005-KA�\u00144IA�\u00144JA�\u0014t�\u0014�,\u0005�R�$\u0005�R�;\u000b(�R�f)�\u0004)hY\n\u001a��I\n\u001a��Q\n���\u0013��e)h��&)h��F)h��N�����Q\n���Q\n\u001a��Y\n:A\nZ��F)h��F)h��f)�\u0004)\u0018Y\n\u0006�`H\n\u0006�`P\n��`\u0012�`d)\u0018��!)\u0018��A)\u0018��I����`P\n��`P\n\u0006�`X\n&A\nF��A)\u0018��A)\u0018�¡z)P�\r\u0006\u0017�0@)\u0018��\u0000�`P\n��`\u0012�`d)\u0018��!)\u0018���_\u001d\fK�$H��R0(\u0005CR0(\u0005��;\u0018��I����`P\n��`P\n\u0006y0,\u0005� \u0005#K��\u0014\fI��\u0014\f��`X\n&A\nF��A)\u0018��A)\u0018�#��\u0014L�\u0014�,\u0005�R�$\u0005�R�x[�e)�\u0004)XY\n\u0016�`I\n\u0016�`��\u0004�R�\tR��\u0014,J��\u0014,J��- ��mY\n6A\nV��E)X��E)XM�X-K�&H��R�(\u0005KR�(\u0005k0\u0010K��ܒx�D��Ż\u0012Q\n\u0016�)X��M����`Q\n��`Q\n�a ��M����`Q\n��`Q\nvg\u0001s�C��`\u0013�`e)X��%)X���Y@_\b�R�\tR��\u0014,J�[=���[=�m��1��D��{ʺ=_��W��C*8��C*�1\u001d\"�Tp\tTp2\u0015\u001cR�\u0011\u0015\u001cR�e\u0018���\u0012��d*8��#*8��S\u0018���\u0012��d*8�B�z~\u0012u�j|�H�I��^��\\��D�\u0015\u001cZ��\u0015\u001cZ�\u0019��vl\u0005�`\u0005'[��\u0015\u001cY�ST��f:���\n.��\u0018.�\u001d\u0003Z��_28\f��$b+�\u0004+8�\n\u000e���\n�b?��@l\u0005�`\u0005'[��\u0015\u001cY�S�\u0007B+8��K������\n��*t��@\u0013\f�W\u0015\\�U\u0005/S�#\u0015\n                            <Q�S�\u0005�H\u0005�T�\tT�2\u0015\n                                <R�\u0013\u0015:�~ ��g*�\u0004*x�\n\u001e���\n�b?\u0010R�3\u0015|\u0002\u0015�L\u0005�T�tU�S�\u0007�\u0018��*���\n^��G)x�B��\u000fd0\u0010K�'H��R�(\u0005OR�(\u0005o1\u0010K�'H��R�(\u0005OR�(\u0005�R�,\u0005� \u0005�/\u001fQ\n���Q\n\u001e��Y\n>A\n^��G)x��G)x��g)�\u0004)xY\n\u001e��I\n\u001e��Q\n���\u0013�\u0010d)\u0004�B )\u0004�B@)\u0004�BH�B��\u0010P\n��\u0010P\n\u0001�\u0010X\n!A\nA�B@)\u0004�B@)\u0004�B`)�\u0004)\u0004Y\n\u0001�\u0010H\n\u0001�\u00104}c\r,�� � K!�\u0014\u0002I!�\u0014\u0002^S\b,�� � K!�\u0014\u0002I!�\u0014\u0002^S\b,�� � K!�\u0014\u0002I!�\u0014��@,�� � K!�\u0014\u0002I!�\u0014\u0002��\u0010X\n!A\n���\u0012P\n��\u0010P\n\u0001�\u0010X\n!A\nA�B@)\u0004�B@)\u0004�B`)\u0004����C�\\5\u001f�ۇl\r\u001e�y��\n                                    <_l��?s>\u0017���J��(,��׏el�(�2��o�z�\f���Zo_�s�k�4��0��}\"S;\u0015?��U�\u001c&���\u0015=�\u0007�|]ԟ˿��C���,V��I`���C������c��.�\u001d�͗��\u0010�����y�N�\u001d���U��/O���KQ���m��vC\u0006�r>/긮\u000f����bu�\u000f��CYo����&�Y6O�����|Q>��y�=��wS�f��Q�#p�:�ܭ}7�𺈫?.~:Ѿ>68����vlҙ�N\u001c\u001bu�Nw��M�>;�c^7���z^5��T��O���?PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�M�X�KR\"x\u0000\u0000\u0000�\u0000\u0000\u0000#\u0000\u0004\u0000xl/worksheets/_rels/sheet1.xml.relsSV\u0000\u0000M�1\u000e\u0002!\u0010\u0000{_A��@\u000bc�q��\u0000�\u000f�p+\u0010a!,1�{)-'��y����$\u0016�p�\f(bW�����~ݟAIG�0\u0015&\u000b_\u0012X��|��}4\u0012b\u00155&,\u0016B�����@\u0019e*�x�gi\u0019���uE�BO�h�I��\u0007��\u0007PK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�M�XG�D�Z\u0001\u0000\u0000�\u0004\u0000\u0000\u0013\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000\u0000\u0000\u0000\u0000[Content_Types].xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�M�X\u0017�78�\u0000\u0000\u0000K\u0002\u0000\u0000\u000b\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0001\u0000\u0000_rels/.relsPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�M�X�$�V�\u0000\u0000\u0000�\u0002\u0000\u0000\u001a\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0002\u0000\u0000xl/_rels/workbook.xml.relsPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�M�Xad���\u0001\u0000\u0000E\u0003\u0000\u0000\u0010\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0003\u0000\u0000docProps/app.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�M�X����s\u0001\u0000\u0000\u0011\u0003\u0000\u0000\u0011\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0005\u0000\u0000docProps/core.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�M�Xs�{Y�\u0005\u0000\u0000�\u001b\u0000\u0000\u0013\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000(\u0007\u0000\u0000xl/theme/theme1.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�M�X+�8\u000b\b\u0001\u0000\u0000w\u0002\u0000\u0000\u0014\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000\u0018\r\u0000\u0000xl/sharedStrings.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�M�XQ��a\u001b\u0002\u0000\u0000/\b\u0000\u0000\r\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000V\u000e\u0000\u0000xl/styles.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�M�XJY(ȫ\u0001\u0000\u0000�\u0002\u0000\u0000\u000f\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0010\u0000\u0000xl/workbook.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�M�X=\u0016\u000b�X\n\u0000\u0000mN\u0000\u0000\u0018\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000|\u0012\u0000\u0000xl/worksheets/sheet1.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�M�X�KR\"x\u0000\u0000\u0000�\u0000\u0000\u0000#\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000\u000e\u001d\u0000\u0000xl/worksheets/_rels/sheet1.xml.relsPK\u0005\u0006\u0000\u0000\u0000\u0000\u000b\u0000\u000b\u0000�\u0002\u0000\u0000�\u001d\u0000\u0000\u0000\u0000"
+						},
+						{
+							"name": "Print Receipt Excel",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{blog_api_host}}/api/export-receipt",
+									"host": [
+										"{{blog_api_host}}"
+									],
+									"path": [
+										"api",
+										"export-receipt"
+									],
+									"query": [
+										{
+											"key": "show",
+											"value": "3",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 12 Aug 2024 04:31:36 GMT"
+								},
+								{
+									"key": "Last-Modified",
+									"value": "Mon, 12 Aug 2024 04:31:36 GMT"
+								},
+								{
+									"key": "Content-Disposition",
+									"value": "attachment; filename=ReceiptList.xlsx"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+								},
+								{
+									"key": "Content-Length",
+									"value": "7305"
+								},
+								{
+									"key": "Accept-Ranges",
+									"value": "bytes"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�#\fYG�D�Z\u0001\u0000\u0000�\u0004\u0000\u0000\u0013\u0000\u0004\u0000[Content_Types].xmlSV\u0000\u0000���N�0\u0010E�|E�-J��@\b5��\u0012*Q>`�'�UǶl���L����@�nbE�gr=��tW�d�>(k\n6�r��\u0011V*�,���)�cI�`$hk�`{\fl:�\u001a/�\u000eCBb\u0013\nV���9\u000f��\u001aBf\u001d\u001a�RZ_C�W��\u000e�\n��o���\u000bk\"���ƃM�/��Jb2\u0007\u001f��&\f�i\u001e�\r��(#?�\n<t]0pN+\u0001�\n�\u001b#QS[�J��b]�$km�\u001b\u0017~\u0012\u0018�^c\u0018�\n�#�P!�Zg��<�\u0012�:&�;r�2���y�C�\u0019)�=�R����C�u��A�~�aK��\u0013���ջ��K�ެY\r��\u001d:��޺�\t5�\u0000l��(SG���:�^��\u001eχ\u001f��Q��xH��&�v\u0019>X?c���k�*�(_�����}�>���\u000bk�\u0001PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�#\fY\u0017�78�\u0000\u0000\u0000K\u0002\u0000\u0000\u000b\u0000\u0004\u0000_rels/.relsSV\u0000\u0000���j�0\f��{\n�{���1F�^ʠ�2�\u0007�l�$���-}�y��\u0005��Î��O��v�y\u001a�;�؋Ӱ.JP��޵\u001a^��\u0003���Y\u001aű�3G�Ww�g\u001e)���>�\fqQC��D���b!�]�i$L��3���\f�2n��\u001e�o\u0006T\u000b�:Z\r�h����[��4�ი��]��\u0002yN�,ە\u000f�>�>\u000f�j\n-'\rV�)�#��EF\u0003^6��n���8q\"K��H��>_\u0019ׄ����eƏ�<⇄�Ud�v��\rT�PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�#\fY�$�V�\u0000\u0000\u0000�\u0002\u0000\u0000\u001a\u0000\u0004\u0000xl/_rels/workbook.xml.relsSV\u0000\u0000���j�0\u0010D��\n��ZvZJ)�s)�\\[�\u0003���LlIh7m��U\u001bH\u001c\b�\u0007�Ĭؙ�H���8�OL�\u0007��*J\u0010�M���\u0014|4��g\u0010��[=\u0004�\n&$��w�7\u001c4�\u001dr}$�M<)p��EJ2\u000eGME���M\u001bҨ9��ɨ�^w(We�$��\u0003�\u000bO��\n��V �)��C��\u0006_�9���J�$���/\u001a�:d\u0005G]d\u001f���WK�s��s��<\u000e�[\f\u000f�V�tB��)?���\u0016��0_!��!�\u0019�4�E�ǩ\u0019y���\u001fPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�#\fYad���\u0001\u0000\u0000E\u0003\u0000\u0000\u0010\u0000\u0004\u0000docProps/app.xmlSV\u0000\u0000�SAn�0\u0010��\u0015\u0002�1e�(\n�b�:-rhP\u0003v��ZYD(��n\u0004��/%Ê��T�fg\u0007��T���\u0015=&��Wb�(E�ބ��C%\u001e��o>��\u0018|\r.x��\tI��\u000fj�B��\u0016��\u000e�*�2ǵ�dZ�\u0016��s�\t�\u0003�e:��4��]0/\u001dz����$���k�o�d(Ύ��״\u000ef�GO�S�~Z}��Y\u0003�\u000f�\u001f�I�B�ŷ�A�伩��\u000e�K�|ҥ��R�\f8�dc݀#T�P�\b�̶`\u0013i��G�!\u0015d�䩭D�\u001b\b�8��!Y�,βs1b\u0017���\u0015�3��LJN�\b��9�\u001f�r\u0014dp-�S���#�-;���\u0016\u0012��x9O\n    <f\u0010�e|\u0013��?���E�y�rB\u000f�ဃvB?��Ǹ\u000fw�x\u0019�5�v-$��L�0\u0011�>�M.���É�멤M\u000b�����mcx1O�_���E���P.���\u001f@�\u0005PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�#\fYԙ'�r\u0001\u0000\u0000\u0011\u0003\u0000\u0000\u0011\u0000\u0004\u0000docProps/core.xmlSV\u0000\u0000��QO�0\u0014���\u0015K_�h\u0007Ęe�D�O������^���M{q���u0@}�i9;�_�=i1��U�\u0005�+�g$\u001b1��\u0016F*�����czK\u0012�\\K^\u0019\r3҂'��\u00106\u0017���3\u0016\u001c*�I\u0000i�\u000b;#\u001bD�S��\u0006j�G!���2��\u0018�[S�Ŗ���\u0019��5 �\u001c9퀩\u001d�䀔b@ڝ�\"@\n\n\u0015Ԡ��l��S\u0016����\u0003�9K�\n[\u000bF���{5\u0004��\u00195�\u0018\r�g���i\u0011WM��\u0012@�B�\\8�h\\����4:��uAϼ�Ǌ{|\u000e��\u0014Ȼ�w�w�8��c@&a��_��M�\u001f���\u001c��4e�i6^�i>����5c9c�\u0018\u0017�\u0013�>��?�\u0012�@�\u0015���W&\u000b\u001b�~\u0003�����\u0012�p�bx�e�.~\u0004�w\u001f� �7\u0007\u0011:�B�\u0018'}\u0019\u001b;���Ƶ��C]���\u001bPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�#\fYs�{Y�\u0005\u0000\u0000�\u001b\u0000\u0000\u0013\u0000\u0004\u0000xl/theme/theme1.xmlSV\u0000\u0000�YOo�6\u0014��S\u0010���l)u�:E��햦\r\u0012�C��DK�)Q 餾\r�q��aݰˀ�v\u0018�\u0015h�]�O����\u0001�\n{�c���4i3lC�-������Q�z�A��!\u0011��c9�\u001b\u0016\"��\u0003��\u001d��pp�m!�p\u0012`�\u0013ұfDZ�6?��7TDb��<�\u001b�cEJ�\u001b�-}���2OI\u0002kc.b�`(B;\u0010�\b���n6\u001akv�ib�\u0004����xL}��\u0019Kksμ��+Q2��8�s�:E�\r&N�#g��\u0004:Ĭc���\u001f\r�\u0003e!�������?��y�^\u00101UC��\r�OIW\u0012\u0004�fN'�т�\u0019��W�\u0017��\u0005�U\\�����\u0005�\u001c�}\u001f,uV���t�\n        <5P�ʻ��\u001an\u0015��o��׻ݮ�^���xw\u0005�n��[�\n�]�U��[��Z\u0005�-�k+����5���A\u0011��d\u0005��s\u0011�\u0005d��\r#�\r��|\u0003,Q���\n�D���\u0018��b\u0000�<�X�\u0004�YJ��\u0007\\\u000f�#Aq&\u0000o\u0010��\u0014S�\\��d!�\u000b����Q�!#��W�x��)z�����g�\u000f>~����O\u0006�\u001b8\tu�}��7��?�~���f�����鯿|a\u0006*\u001d��'�?{��������\u0001�%�H�\u000fiL$�E��>��6�\u00002\u0012�\u0018F�V(p\u0004H\u0003���\n��\f3\u0013�K�λ+�\u0000��ק�+�\u001eDb��\u0001�\u0013�\u0015�.�˅ќ�L�n�4\t���T��c|h��;\u0011��4��LM,{\u0011���� �8$\tQ([�\u0013B\fd�(��u���K>V�\u001eE]L�.\u0019ґ2\u0013ݠ1�efR\u0010B]���]����~�\u001cV��\u0010��X\u0012Vq�u\n            <U86j�c�#ob\u0015��<�\t��p� �!a\u001c�\u0003\"��涘U���P��a�e���\u0014�NLț�s\u001d��'�\bǩQg�D:�C9�-��\u001eWF%x5C�1�\u0001'��K�:_Zߡad� ��T�R��j>��\u0018����J\u001d�䴲�(���e{\u000e߂C̔<'�u\u001d�X���4�#�\u0015�+��\n�.V�\\����,Ŷ�k�l���{L\u0019;P3Fnʼ�K0/\u0018�d>ȉ\u0016}~\u001a�c)��\u000b\u0005Ο���c���\b� ��%��d\u001dJ�r\t�\u000b��w~E�`s>���j�\u0007�tK�o.��P�Z\u0019��\nk]y;aN\u0001<�4�3K�N�fkބ�A8{��5\u000bѰQ0#A����<,\u0017\u001e\"\u0019န1r��8�3���z�i��[o'�,A�Ź5�\u000b�Rc%J�j:��:BG����,��c����8\u0005~2+U��I��Ui�k�����m�4j\r��H�T�XF\u0005U�4\u001d�,�ozn懋1�P�ΦE����Z�'CK�c⫚��\\�SE�A\u0014\u001c�\u0011��}\fz���\n����9\u001f\b�P��x��/���k�2;0K#\\֤�\u0016�\u0002�?/t�G�zv��ohJ�\u0002M��]S��\u000b\rn+ȯ^�\u0006\b��=ڱ�P\u0011�*�F�\u001f\bh\u001crY�\u0017���TB,{���J\u000e�u��Q\u0014�0R�4D�B�S� dO�v�������9���,ԕi�;\"��\r��]��P4�&�#r�ɠ٦�\u001a���p���t>��\u0007KA�yz\u0011W+��Q��v*��m�-nzg>jS����\u000b\n7\u0015>[��C�\u000f�G��\u0012�F��.�o19\u0002�ۚq\u0019���Z��]\u0013�l>5g�j�}��7w�g�w����\u0014���L>Z�3����m�\u001fM���{�\u0007p)����\u0000>��t�oPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�#\fY$Y�\u000b�\u0000\u0000\u0000\u001a\u0002\u0000\u0000\u0014\u0000\u0004\u0000xl/sharedStrings.xmlSV\u0000\u0000e��J�0\u0010\u0000�O\u0011r��փ��Yd�CA\u0011�A�Hh��`3����}zS\u0015�t�K�I&\u0019Rn�|�>!2\u0006�t��h\u0005Ԅ\u0016i_�Ǉ�ՙV,�Z�\u0007�JO�zk�JfQ�(q�;���\u0018n:���a\u0000J��\u0010����{�C\u0004�r\u0007 �7Ǜ͉�\u000eI���c�]\u0018I��ږ��\u0014�\u001bY��X\u001a������;\u001c<��~\t,HNR\u0013y�.b\u0003\u000bt�\\�s�\r��{�^�.Z���u]�t�\u001c\u000e���E�O�/9M#�\u0010r��\u00139�r�\u000e9E΍�y,\u001a�����C[\u0014�I�>�~\u0003PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�#\fYE�u�\t\u0002\u0000\u0000�\u0005\u0000\u0000\r\u0000\u0004\u0000xl/styles.xmlSV\u0000\u0000�TK��0\u0010��+,�YǕ\u0016�*�\n�\"q`��E��$��Z?\"۩Z~=~�M�\u0014Qq�\u0017ό������?\u001e�@\u00070�kU`z�a\u0004��-W}��﫷�1����\t���'���|�[w\u0012�<\u00008�\u0019\u001e��\u001a�:\u001a�`\u000e�CP�\u0002\u000f΍\u000f��f\u0000��\u001eA��N\u001bɜwMO��a�\rLR�]��#�q��\\M��΢FO�\u00158ä�;���\u000e�@�����\f�+�:�_`\u0015����^����S\u001a�F\u000bm���\u0002WU\u0016G\b+&g��L���\u0010$��<����d�\f.Ķ->P�#s\u000e����f{\u001aa\u0011@\u0012�/�ް\u0013�ݯ\u0012����ڴ��+�P�\u000b�O0�\u001f���H¢sZz��׊�@y�Xg�x�\n�\u0006޼�W���#�\tعȭ)\u0011\u001c\u0005ݚ�g鷦$��}Άo_\u0003B\n                <\u0007�\u001fݥ�Գ\u001e;�.��6\\\u001c\u0014N�l���f�IN�_�%�\u0015�.�\u001e��)����#6��T��\u0010��4�\u001aL\u0015��\n�\t\u0016�S�X����J��=_�Do�D7��?H��D�έ�gs8�(\n/��O����>�\u000b�Օ������h���#MUZ��$��\u0012*�b��O�\u0003>���v3*�\u000b4~'d���_PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�#\fYJY(ȫ\u0001\u0000\u0000�\u0002\u0000\u0000\u000f\u0000\u0004\u0000xl/workbook.xmlSV\u0000\u0000�R�N�@\u0010}�WX�^l\u0010�6��T \u0014�\u0017TRx���x�޴�N����:i)O�e�������ɚj��ɻV\u001d\u001e4�B�}G�U�Wˏ�T�\t\\\u0007�;l�3�:[|�o}|\\{�XI��\u0003h񅈌q�*��[5�\u0014fu�z@\u000b|�\u0003:��>ZH\u0002�C͒\u0003\u001d\u000f�ɚ��iNk\u000b�v\u0015f�=5|ߓ�\u000b�G�.ME\"\u001aH�\u0012\u000f\u0014X-�=\u0019���� �\u001f`e�'�*\u0003�.;Jص�X���D\u001c×�L\u0006'͉�\u00177����S��@|�s�l�\b��/>�\nt�\r�`�*Q\u001a��d\u0012�\u000bHx\u0015�\u0018��)�\"bO��m��\u0004[rd�%�Ճa\t��o��H/�%0�:zc���Wr�\u0017�&E�D�mx���,X�N\u001b�!�5\u0019Jϭ*o�y���Z�f{[��BV���J̵�z(\u001a�H\u001e�;.E��\u001d���\u0002��2�Κ��y�˧\n�.:�*�5�so��r\"\u0019�\u001f�9\u0017����a�(�����L�?��\u000fPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�#\fY��Z�O\u0006\u0000\u0000x&\u0000\u0000\u0018\u0000\u0004\u0000xl/worksheets/sheet1.xmlSV\u0000\u0000��[o�6\u0018���+\f�76�O>\u0005��5a�\u0002\u001bR��z�H�-T\u0016=�����Q�żan\"�^���A����M��+Sf��닛a���D�Y�������ݴ�+m\\�q�\u000bu�������o�6?ʵR��\u0002n�m��ƭQ�2{կ*�򮿶v{;\u0018��Zm��FoU�Z��lb�f5(ݘ8��6�����`\u0013g�)�քd��2KԃNv\u001bU�c�Qyl\u001dS�ζ�9�%\r�KM|p���4��pl�䉨���\u0012�K��7�ޜ�֥�\rf-ΗMX�zI��6m�\u0010�Ml~��\\��ݛ�,���:���$��V�6�s㊓\u0006d܍\u000f�tI�y]��,�zg�P�M��m܂~~P�>�7�����ֶ�\u0018,�˸4s϶zI{F-������hXu�{���Cٸ������UbUZgW���?��O�ʽ��Z\u001f�0Y��[�{U�٩c�\u0017}���GG�>\u0016�h\u0017\\gU����^ݫ<�\u0016�\u0006�{YOc��4����\u001e���S��w�uS}T'��&��N��O�W���\f�unaUݙ�!��bn��g��p\u001bW\u001f;q;v�N��z�u���t���p>ػ�%�\u001e\u001f�=D��}�\u0007�{\n                <t{p������=\u001e�=F�\u001e\u0003�x\u0001%/(5\u0006��\u0010�m�+�f��\n���c4t?7W�M\u001e\u001b����:�c�\u0017�\u0001\u0006\u0003\f\u0006\u0018|�\u0018{1\u0018a��\u0018�\u0017#\u0002\u0018�6q5�}���E|���#\u001fG�8Z��\u0007\u0019yAF\u0000d\u0004��\b<�\u0011z\u001e#�1z�y��\u0018c�1\u0006\u0018c�1F\u0018c�1~\u001bc�Ř\u0000�\t��\u0000�\t ���\u0018S/�\u0014`L\u0001�\u0014`L\u0011�\u0014aL�Ƙy1f�O��\u001f�\u000f3��\u001ax�\u000f<�T9;n\f~���W6\u000f1�o�C��j��i\u000f����ҵ\u0002���׀^��\u0005\u0004\u0012\bH@ \u0014,��@\"\u0004ȿ�\u000b�@h�o\u000f�\u0000�`)\b\u0002Q\b��\u0017\f��f�\u001e�\u0001B�R0\u0004�\u0010 ��/\"\b\u0014!�\b\u0002�`)\"\b\u0014�\u0000��~1�@h�o\u000f�\u0000�`)F\u0010h\u0014\u0002�\u00001�@H\u0004�C;@(X�1\u0004\u001a�\u0000�}@L \u0010R���\u000e\u0010\n�b\u0002�&!@~3\u0010S\b��=�\u0003����B�i\b��\u0011\u0004�\u0004�,A@M��R@Q\u0010!�@~S h\n�L��)�`I�\u0014(�\u0014�o\n\u0004M��)\u00104\u0005\u0018,\t�\u0002��\u0002��\u0000h\n\u0004�\u0019\u0000M\u0001\u0006K��@!�@~S h\n�L��)�`I�\u0014(�\u0014�o\n\u0004M��)\u00104\u0005\u0018,\t�\u0002��\u0002�M��)\u00102\u0005��\u0000�%AS�\u0010S �)\u00104\u0005B�@�\u0014`�$h\n\u0014b\n�7\u0005��@�\u0014\b�\u0002\f�\u0004M�BL���@�\u0014\b�\u0002AS����)P�)��\u0014\b�\u0002!S h\n0X\u00124\u0005\n1\u0005��\u0002CS`d\n\fM\u0001\u0006K���!��~S`h\n�L��)�`��\u00148�\u0014�o\n\fM��)04\u0005\u0018,\u0019�\u0002��\u0002���\u00014\u0005�_ @S����)p�)��\u0014\u0018�\u0002#S`h\n0X24\u0005\u000e1\u0005��\u0002CS`d\n\fM\u0001\u0006K���!��~S�֦���\n�\u0002CS`h\n\fM�CL����\u0013\b�L��)04\u0005���!��~S�)\u0004B���\u0014\u0018�\u0002CS�\u0010S`�)�\f\u0002!S`h\n\fM��)p�)D~S��\b(B�\u0010AS���z�B\u00114�\b� q\u0000ak��>m��6�կ3\u0015�8/U�W�WeO\u0007-\u0006nP�R�f��1�Z���{���8D}m���r����zs.���\u0019U�m-K���p�u\u0013���m�U�k���O\u0015h���և�����\u0017�a$qu�E\f\u001d�2����<Ʃ�=K��.V�O��7Շ��Z\u0015O{e�9��y�\u0017�K��R\u00197�S�ʽ*.�����^��%|���A'�s(q�����t�N���N���\u0014�\u0004\u001a���8���|������Bu}\u0019�,,��]��Ju�2�]jހ��Vǈ>�Ɩ�D�\n{:�2�\u001c\u001a[�\u000fPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�#\fY�KR\"x\u0000\u0000\u0000�\u0000\u0000\u0000#\u0000\u0004\u0000xl/worksheets/_rels/sheet1.xml.relsSV\u0000\u0000M�1\u000e\u0002!\u0010\u0000{_A��@\u000bc�q��\u0000�\u000f�p+\u0010a!,1�{)-'��y����$\u0016�p�\f(bW�����~ݟAIG�0\u0015&\u000b_\u0012X��|��}4\u0012b\u00155&,\u0016B�����@\u0019e*�x�gi\u0019���uE�BO�h�I��\u0007��\u0007PK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�#\fYG�D�Z\u0001\u0000\u0000�\u0004\u0000\u0000\u0013\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000\u0000\u0000\u0000\u0000[Content_Types].xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�#\fY\u0017�78�\u0000\u0000\u0000K\u0002\u0000\u0000\u000b\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0001\u0000\u0000_rels/.relsPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�#\fY�$�V�\u0000\u0000\u0000�\u0002\u0000\u0000\u001a\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0002\u0000\u0000xl/_rels/workbook.xml.relsPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�#\fYad���\u0001\u0000\u0000E\u0003\u0000\u0000\u0010\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0003\u0000\u0000docProps/app.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�#\fYԙ'�r\u0001\u0000\u0000\u0011\u0003\u0000\u0000\u0011\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0005\u0000\u0000docProps/core.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�#\fYs�{Y�\u0005\u0000\u0000�\u001b\u0000\u0000\u0013\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000'\u0007\u0000\u0000xl/theme/theme1.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�#\fY$Y�\u000b�\u0000\u0000\u0000\u001a\u0002\u0000\u0000\u0014\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000\u0017\r\u0000\u0000xl/sharedStrings.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�#\fYE�u�\t\u0002\u0000\u0000�\u0005\u0000\u0000\r\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000H\u000e\u0000\u0000xl/styles.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�#\fYJY(ȫ\u0001\u0000\u0000�\u0002\u0000\u0000\u000f\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0010\u0000\u0000xl/workbook.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�#\fY��Z�O\u0006\u0000\u0000x&\u0000\u0000\u0018\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000\\\u0012\u0000\u0000xl/worksheets/sheet1.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�#\fY�KR\"x\u0000\u0000\u0000�\u0000\u0000\u0000#\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0018\u0000\u0000xl/worksheets/_rels/sheet1.xml.relsPK\u0005\u0006\u0000\u0000\u0000\u0000\u000b\u0000\u000b\u0000�\u0002\u0000\u0000�\u0019\u0000\u0000\u0000\u0000"
+						},
+						{
+							"name": "Print Receipt Excel",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{blog_api_host}}/api/export-receipt",
+									"host": [
+										"{{blog_api_host}}"
+									],
+									"path": [
+										"api",
+										"export-receipt"
+									],
+									"query": [
+										{
+											"key": "show",
+											"value": "3",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Oct 2024 07:28:20 GMT"
+								},
+								{
+									"key": "Last-Modified",
+									"value": "Thu, 17 Oct 2024 07:28:20 GMT"
+								},
+								{
+									"key": "Content-Disposition",
+									"value": "attachment; filename=ReceiptList.xlsx"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+								},
+								{
+									"key": "Content-Length",
+									"value": "6701"
+								},
+								{
+									"key": "Accept-Ranges",
+									"value": "bytes"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�;QYG�D�Z\u0001\u0000\u0000�\u0004\u0000\u0000\u0013\u0000\u0004\u0000[Content_Types].xmlSV\u0000\u0000���N�0\u0010E�|E�-J��@\b5��\u0012*Q>`�'�UǶl���L����@�nbE�gr=��tW�d�>(k\n6�r��\u0011V*�,���)�cI�`$hk�`{\fl:�\u001a/�\u000eCBb\u0013\nV���9\u000f��\u001aBf\u001d\u001a�RZ_C�W��\u000e�\n��o���\u000bk\"���ƃM�/��Jb2\u0007\u001f��&\f�i\u001e�\r��(#?�\n<t]0pN+\u0001�\n�\u001b#QS[�J��b]�$km�\u001b\u0017~\u0012\u0018�^c\u0018�\n�#�P!�Zg��<�\u0012�:&�;r�2���y�C�\u0019)�=�R����C�u��A�~�aK��\u0013���ջ��K�ެY\r��\u001d:��޺�\t5�\u0000l��(SG���:�^��\u001eχ\u001f��Q��xH��&�v\u0019>X?c���k�*�(_�����}�>���\u000bk�\u0001PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�;QY\u0017�78�\u0000\u0000\u0000K\u0002\u0000\u0000\u000b\u0000\u0004\u0000_rels/.relsSV\u0000\u0000���j�0\f��{\n�{���1F�^ʠ�2�\u0007�l�$���-}�y��\u0005��Î��O��v�y\u001a�;�؋Ӱ.JP��޵\u001a^��\u0003���Y\u001aű�3G�Ww�g\u001e)���>�\fqQC��D���b!�]�i$L��3���\f�2n��\u001e�o\u0006T\u000b�:Z\r�h����[��4�ი��]��\u0002yN�,ە\u000f�>�>\u000f�j\n-'\rV�)�#��EF\u0003^6��n���8q\"K��H��>_\u0019ׄ����eƏ�<⇄�Ud�v��\rT�PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�;QY�$�V�\u0000\u0000\u0000�\u0002\u0000\u0000\u001a\u0000\u0004\u0000xl/_rels/workbook.xml.relsSV\u0000\u0000���j�0\u0010D��\n��ZvZJ)�s)�\\[�\u0003���LlIh7m��U\u001bH\u001c\b�\u0007�Ĭؙ�H���8�OL�\u0007��*J\u0010�M���\u0014|4��g\u0010��[=\u0004�\n&$��w�7\u001c4�\u001dr}$�M<)p��EJ2\u000eGME���M\u001bҨ9��ɨ�^w(We�$��\u0003�\u000bO��\n��V �)��C��\u0006_�9���J�$���/\u001a�:d\u0005G]d\u001f���WK�s��s��<\u000e�[\f\u000f�V�tB��)?���\u0016��0_!��!�\u0019�4�E�ǩ\u0019y���\u001fPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�;QYad���\u0001\u0000\u0000E\u0003\u0000\u0000\u0010\u0000\u0004\u0000docProps/app.xmlSV\u0000\u0000�SAn�0\u0010��\u0015\u0002�1e�(\n�b�:-rhP\u0003v��ZYD(��n\u0004��/%Ê��T�fg\u0007��T���\u0015=&��Wb�(E�ބ��C%\u001e��o>��\u0018|\r.x��\tI��\u000fj�B��\u0016��\u000e�*�2ǵ�dZ�\u0016��s�\t�\u0003�e:��4��]0/\u001dz����$���k�o�d(Ύ��״\u000ef�GO�S�~Z}��Y\u0003�\u000f�\u001f�I�B�ŷ�A�伩��\u000e�K�|ҥ��R�\f8�dc݀#T�P�\b�̶`\u0013i��G�!\u0015d�䩭D�\u001b\b�8��!Y�,βs1b\u0017���\u0015�3��LJN�\b��9�\u001f�r\u0014dp-�S���#�-;���\u0016\u0012��x9O\n    <f\u0010�e|\u0013��?���E�y�rB\u000f�ဃvB?��Ǹ\u000fw�x\u0019�5�v-$��L�0\u0011�>�M.���É�멤M\u000b�����mcx1O�_���E���P.���\u001f@�\u0005PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�;QY�n�Mr\u0001\u0000\u0000\u0011\u0003\u0000\u0000\u0011\u0000\u0004\u0000docProps/core.xmlSV\u0000\u0000���N�0\u0010D�|E�+J�\u0004\u0004(J�\u0004�\u0013��(�����ib[�B���qڴ��8E�\u0019?�\\�n�:�\u0006��S�M\u0018I@\u000b#�^N���1�!�G�%���)�����\u0014�\u0010���3\u0016\u001c*�I\u0000i_\b;%+D[P��\n\u001a�'!���0��\u0018�[R�Ś/��]�\u0006�K����ԎD�EJ1\"헫#@\n\n54���l��}\u0016�5���\u001c$\u001b����ѝ9�7^���m'�E���3�>{z���J�U\t U)E!\u001cp4�z�kmZ��\u000f��\u0007^�c�=�B�\u000b\u0005��\u001b�\u001b)�k\u000e\u0018�I\u0018�\u0018��9o\u0017�\u000f�GR�,�L3�f�sv]�7E��\u0019+\u0018��8������aw��\u0005*�!�\u0016�2y��N�W\u0000\u0018�\u0018�>(�\u000b�,��XE��G����\u0013\u0004\u000e�(BGk�Z㤯bc{տ԰�Ҹn�~��W\\�\u0000PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�;QYs�{Y�\u0005\u0000\u0000�\u001b\u0000\u0000\u0013\u0000\u0004\u0000xl/theme/theme1.xmlSV\u0000\u0000�YOo�6\u0014��S\u0010���l)u�:E��햦\r\u0012�C��DK�)Q 餾\r�q��aݰˀ�v\u0018�\u0015h�]�O����\u0001�\n{�c���4i3lC�-������Q�z�A��!\u0011��c9�\u001b\u0016\"��\u0003��\u001d��pp�m!�p\u0012`�\u0013ұfDZ�6?��7TDb��<�\u001b�cEJ�\u001b�-}���2OI\u0002kc.b�`(B;\u0010�\b���n6\u001akv�ib�\u0004����xL}��\u0019Kksμ��+Q2��8�s�:E�\r&N�#g��\u0004:Ĭc���\u001f\r�\u0003e!�������?��y�^\u00101UC��\r�OIW\u0012\u0004�fN'�т�\u0019��W�\u0017��\u0005�U\\�����\u0005�\u001c�}\u001f,uV���t�\n        <5P�ʻ��\u001an\u0015��o��׻ݮ�^���xw\u0005�n��[�\n�]�U��[��Z\u0005�-�k+����5���A\u0011��d\u0005��s\u0011�\u0005d��\r#�\r��|\u0003,Q���\n�D���\u0018��b\u0000�<�X�\u0004�YJ��\u0007\\\u000f�#Aq&\u0000o\u0010��\u0014S�\\��d!�\u000b����Q�!#��W�x��)z�����g�\u000f>~����O\u0006�\u001b8\tu�}��7��?�~���f�����鯿|a\u0006*\u001d��'�?{��������\u0001�%�H�\u000fiL$�E��>��6�\u00002\u0012�\u0018F�V(p\u0004H\u0003���\n��\f3\u0013�K�λ+�\u0000��ק�+�\u001eDb��\u0001�\u0013�\u0015�.�˅ќ�L�n�4\t���T��c|h��;\u0011��4��LM,{\u0011���� �8$\tQ([�\u0013B\fd�(��u���K>V�\u001eE]L�.\u0019ґ2\u0013ݠ1�efR\u0010B]���]����~�\u001cV��\u0010��X\u0012Vq�u\n            <U86j�c�#ob\u0015��<�\t��p� �!a\u001c�\u0003\"��涘U���P��a�e���\u0014�NLț�s\u001d��'�\bǩQg�D:�C9�-��\u001eWF%x5C�1�\u0001'��K�:_Zߡad� ��T�R��j>��\u0018����J\u001d�䴲�(���e{\u000e߂C̔<'�u\u001d�X���4�#�\u0015�+��\n�.V�\\����,Ŷ�k�l���{L\u0019;P3Fnʼ�K0/\u0018�d>ȉ\u0016}~\u001a�c)��\u000b\u0005Ο���c���\b� ��%��d\u001dJ�r\t�\u000b��w~E�`s>���j�\u0007�tK�o.��P�Z\u0019��\nk]y;aN\u0001<�4�3K�N�fkބ�A8{��5\u000bѰQ0#A����<,\u0017\u001e\"\u0019န1r��8�3���z�i��[o'�,A�Ź5�\u000b�Rc%J�j:��:BG����,��c����8\u0005~2+U��I��Ui�k�����m�4j\r��H�T�XF\u0005U�4\u001d�,�ozn懋1�P�ΦE����Z�'CK�c⫚��\\�SE�A\u0014\u001c�\u0011��}\fz���\n����9\u001f\b�P��x��/���k�2;0K#\\֤�\u0016�\u0002�?/t�G�zv��ohJ�\u0002M��]S��\u000b\rn+ȯ^�\u0006\b��=ڱ�P\u0011�*�F�\u001f\bh\u001crY�\u0017���TB,{���J\u000e�u��Q\u0014�0R�4D�B�S� dO�v�������9���,ԕi�;\"��\r��]��P4�&�#r�ɠ٦�\u001a���p���t>��\u0007KA�yz\u0011W+��Q��v*��m�-nzg>jS����\u000b\n7\u0015>[��C�\u000f�G��\u0012�F��.�o19\u0002�ۚq\u0019���Z��]\u0013�l>5g�j�}��7w�g�w����\u0014���L>Z�3����m�\u001fM���{�\u0007p)����\u0000>��t�oPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�;QY\u0001\u0000T��\u0000\u0000\u0000�\u0001\u0000\u0000\u0014\u0000\u0004\u0000xl/sharedStrings.xmlSV\u0000\u0000e��J�0\u0010\u0007�O\u0011r�MU\u0010�4��z((��\u0000C;n�ͤf���ӛ� ��S~���aw�qT_�9$j����\n�OC�C��^\u001f6�Z�\u0000\r0&�V\u001f��ΝYfQe+q���tc\f�\u001e#�6MH��r\u0004)�|0\n                <e��=���\\4͕�\u0010H�����4���/��\u001c�\u0015��YR�l�8k\u0016��\u0017\u001f��$��!K ����C�+��\u0012õ?%Y�},7U�C\f���j\u0012\u001f�T͛\u001az�e�\"�!��T��_��)��~\u0000PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�;QYE�u�\t\u0002\u0000\u0000�\u0005\u0000\u0000\r\u0000\u0004\u0000xl/styles.xmlSV\u0000\u0000�TK��0\u0010��+,�YǕ\u0016�*�\n�\"q`��E��$��Z?\"۩Z~=~�M�\u0014Qq�\u0017ό������?\u001e�@\u00070�kU`z�a\u0004��-W}��﫷�1����\t���'���|�[w\u0012�<\u00008�\u0019\u001e��\u001a�:\u001a�`\u000e�CP�\u0002\u000f΍\u000f��f\u0000��\u001eA��N\u001bɜwMO��a�\rLR�]��#�q��\\M��΢FO�\u00158ä�;���\u000e�@�����\f�+�:�_`\u0015����^����S\u001a�F\u000bm���\u0002WU\u0016G\b+&g��L���\u0010$��<����d�\f.Ķ->P�#s\u000e����f{\u001aa\u0011@\u0012�/�ް\u0013�ݯ\u0012����ڴ��+�P�\u000b�O0�\u001f���H¢sZz��׊�@y�Xg�x�\n�\u0006޼�W���#�\tعȭ)\u0011\u001c\u0005ݚ�g鷦$��}Άo_\u0003B\n                    <\u0007�\u001fݥ�Գ\u001e;�.��6\\\u001c\u0014N�l���f�IN�_�%�\u0015�.�\u001e��)����#6��T��\u0010��4�\u001aL\u0015��\n�\t\u0016�S�X����J��=_�Do�D7��?H��D�έ�gs8�(\n/��O����>�\u000b�Օ������h���#MUZ��$��\u0012*�b��O�\u0003>���v3*�\u000b4~'d���_PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�;QYJY(ȫ\u0001\u0000\u0000�\u0002\u0000\u0000\u000f\u0000\u0004\u0000xl/workbook.xmlSV\u0000\u0000�R�N�@\u0010}�WX�^l\u0010�6��T \u0014�\u0017TRx���x�޴�N����:i)O�e�������ɚj��ɻV\u001d\u001e4�B�}G�U�Wˏ�T�\t\\\u0007�;l�3�:[|�o}|\\{�XI��\u0003h񅈌q�*��[5�\u0014fu�z@\u000b|�\u0003:��>ZH\u0002�C͒\u0003\u001d\u000f�ɚ��iNk\u000b�v\u0015f�=5|ߓ�\u000b�G�.ME\"\u001aH�\u0012\u000f\u0014X-�=\u0019���� �\u001f`e�'�*\u0003�.;Jص�X���D\u001c×�L\u0006'͉�\u00177����S��@|�s�l�\b��/>�\nt�\r�`�*Q\u001a��d\u0012�\u000bHx\u0015�\u0018��)�\"bO��m��\u0004[rd�%�Ճa\t��o��H/�%0�:zc���Wr�\u0017�&E�D�mx���,X�N\u001b�!�5\u0019Jϭ*o�y���Z�f{[��BV���J̵�z(\u001a�H\u001e�;.E��\u001d���\u0002��2�Κ��y�˧\n�.:�*�5�so��r\"\u0019�\u001f�9\u0017����a�(�����L�?��\u000fPK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�;QYC�f�\r\u0004\u0000\u0000D\u0010\u0000\u0000\u0018\u0000\u0004\u0000xl/worksheets/sheet1.xmlSV\u0000\u0000���r�:\u0014���\u0014\f�5��\u0003\u001e۝�8n;�N2I��\f�h\u0002�-�vҧ��\u0004\fh�M�\u000e��>I�$���e�u&\\P�ol4qm��!�h~�����?/mKH�G8e9���D�_���\u0017�_EB��@`%\n\u001cB��D\u0010~&�r�bc'R\u0016+�\u0011aB2,&� 9Db�3,��GG@\u001f\u001ci�,u��;w2L�Ja��h�8�!ٱ�\\�\"��X\u0002�Hh!�jo�(���\u000b�_�i��+#�\u001e�;z\u0019\r9\u0013,���eUi]��\tZ�o�8!�\u0016��i��1\\\u0019毧�3�\u001507\u0007�R���l+\u000bW?�9����:\u0002\u0017\u000e\u001b��+?\u001e\u0013��k�{��5;ɔ��[�AA�_I�.����\u001e\u0013�\u001c�v���\"\nk�6��I���A�=�T������h�-�\u000f�$%�$��V���ث\n�\u0000\u0017ls���7N��P\u000elU�O�t>��\u001dK�\u0003\t|,To\u0010�Zjt\f��䎤�*\u0002:��Q�G�j�f�Z�^�\u0006�G$ƧT�P�I��O|۪��'9��I͋��Aa�w��a��k�.\u0016/����c�Vs(:TN]���\u0018\u0002�筻v�P\\Xe|�f�v�]7c���u3�v�}7�og�\u0019�:�\u0001�\u001at�\u000b:mt�� 6c�\u001b�fly�Ռ\u00057@ӲDW�ݐ4�!�\u001f���\f\u0010�\u0001�3@x\u0006\bo\u0018�\u001b\u0001��B�\u0006\b�\u0000�\u001b |\u0003�?\fᏀ��B�\f\u00103\u0003��\u000013@̆!f# �\u0010s\u0003��\u0000ь��o�ݼtϻ��χ!Z��~�E/��\u0000�0@,L\u0010�a��0�b\u0004Ĳ\u0017bi�X\u001a ����4l��0�r�v\nz!\u0002\u0003D`�\bL+\u0011\f�D0\f\u0011�X\t�����\u0001�\u0015��h\u0005; \u0010\u001d$�b�(m�!���\u001d�X��\u0005\u0019Y��\u0005\u0019X�\u0018��\u0003\u001c�Npd:�[�.���b8�۪C,��82\u001d��t���]\u0016��b8�۪�,N�2Yp�ˇB������8Ʃ�\u000br�y&��4�e��G�\u000b�#�>)�!�N໒�W[ݖ��-8�\u000eLJ�]�D_��\u00055ƌɫQ��@��*pA�3�C�\r�q\n/=�����]\u001a�!����\\�@�T���n]ٿi$\u0013m*�\u0007�Ǎ�%IH�\u0000�`5fY�^\u0017bE4�\t��\u001e���L�z\u001e���r!k�.�7�\t�F�o\n��c�|�\fU~x\u000bEQ�ʀ\u0015h��Y�^��m���uz�P��CӈUiu�����S�jN�v-Փ�\u0011s)���rY=?��\u0007��_PK\u0003\u0004\u0014\u0000\u0000\b\b\u0000�;QY�KR\"x\u0000\u0000\u0000�\u0000\u0000\u0000#\u0000\u0004\u0000xl/worksheets/_rels/sheet1.xml.relsSV\u0000\u0000M�1\u000e\u0002!\u0010\u0000{_A��@\u000bc�q��\u0000�\u000f�p+\u0010a!,1�{)-'��y����$\u0016�p�\f(bW�����~ݟAIG�0\u0015&\u000b_\u0012X��|��}4\u0012b\u00155&,\u0016B�����@\u0019e*�x�gi\u0019���uE�BO�h�I��\u0007��\u0007PK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�;QYG�D�Z\u0001\u0000\u0000�\u0004\u0000\u0000\u0013\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000\u0000\u0000\u0000\u0000[Content_Types].xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�;QY\u0017�78�\u0000\u0000\u0000K\u0002\u0000\u0000\u000b\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0001\u0000\u0000_rels/.relsPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�;QY�$�V�\u0000\u0000\u0000�\u0002\u0000\u0000\u001a\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0002\u0000\u0000xl/_rels/workbook.xml.relsPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�;QYad���\u0001\u0000\u0000E\u0003\u0000\u0000\u0010\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0003\u0000\u0000docProps/app.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�;QY�n�Mr\u0001\u0000\u0000\u0011\u0003\u0000\u0000\u0011\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0005\u0000\u0000docProps/core.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�;QYs�{Y�\u0005\u0000\u0000�\u001b\u0000\u0000\u0013\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000'\u0007\u0000\u0000xl/theme/theme1.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�;QY\u0001\u0000T��\u0000\u0000\u0000�\u0001\u0000\u0000\u0014\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000\u0017\r\u0000\u0000xl/sharedStrings.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�;QYE�u�\t\u0002\u0000\u0000�\u0005\u0000\u0000\r\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000.\u000e\u0000\u0000xl/styles.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�;QYJY(ȫ\u0001\u0000\u0000�\u0002\u0000\u0000\u000f\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000f\u0010\u0000\u0000xl/workbook.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�;QYC�f�\r\u0004\u0000\u0000D\u0010\u0000\u0000\u0018\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000B\u0012\u0000\u0000xl/worksheets/sheet1.xmlPK\u0001\u0002\u0003\u0006\u0014\u0000\u0000\b\b\u0000�;QY�KR\"x\u0000\u0000\u0000�\u0000\u0000\u0000#\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 \u0000\u0000\u0000�\u0016\u0000\u0000xl/worksheets/_rels/sheet1.xml.relsPK\u0005\u0006\u0000\u0000\u0000\u0000\u000b\u0000\u000b\u0000�\u0002\u0000\u0000F\u0017\u0000\u0000\u0000\u0000"
+						}
+					]
+				}
+			]
+		}
+	]
+}
