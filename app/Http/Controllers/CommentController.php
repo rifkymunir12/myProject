@@ -14,6 +14,7 @@ class CommentController extends Controller
 {
     public function index(Request $request){   
         $comments = Comment::paginate($request->show);
+        dd(12222);
         return Response::json(new CommentCollection($comments));
     }
 
